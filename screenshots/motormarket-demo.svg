@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#061026"/>
+      <stop offset="1" stop-color="#08102a"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)" rx="12"/>
+  <g transform="translate(60,120)">
+    <!-- Wheels -->
+    <circle cx="120" cy="200" r="48" fill="#071827" stroke="#6ee7b7" stroke-width="6"/>
+    <circle cx="420" cy="200" r="48" fill="#071827" stroke="#6ee7b7" stroke-width="6"/>
+    <!-- Body (animated) -->
+    <g id="bike" transform="translate(0,0)">
+      <path d="M40 140 L110 80 L210 120 L360 90" fill="none" stroke="#9fdcee" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M210 120 L250 80 L300 100" fill="none" stroke="#9fdcee" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <animate xlink:href="#bike" attributeName="transform" type="translate" values="0,0;10,-6;0,0" dur="1.4s" repeatCount="indefinite" />
+  </g>
+
+  <!-- Demo text -->
+  <g transform="translate(520,60)">
+    <text x="0" y="40" fill="#cfeef8" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700">Live demo (placeholder)</text>
+    <text x="0" y="80" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="16">Channels-based bidding • DRF API • Image uploads</text>
+    <g transform="translate(0,110)">
+      <rect x="0" y="0" width="240" height="36" rx="8" fill="#06b6d4" />
+      <text x="120" y="24" fill="#061125" font-family="Inter, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="700">Play demo</text>
+    </g>
+  </g>
+</svg>

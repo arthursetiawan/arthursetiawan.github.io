@@ -1,89 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthur Setiawan</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .header {
-            background-color: #24292e;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 2em auto;
-            background: white;
-            padding: 2em;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        .profile-pic {
-            display: block;
-            margin: 0 auto 1em auto;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-        }
-        .repo {
-            border-bottom: 1px solid #ccc;
-            padding: 1em 0;
-        }
-        .repo:last-child {
-            border-bottom: none;
-        }
-        .repo a {
-            text-decoration: none;
-            color: #0366d6;
-            font-size: 1.2em;
-        }
-        .repo p {
-            color: #586069;
-        }
-        .footer {
-            text-align: center;
-            padding: 1em 0;
-            background-color: #24292e;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arthur Setiawan — Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:linear-gradient(180deg,#071029 0%, #081129 60%); color:#e6eef6;}
+    .site{max-width:1100px; margin:3rem auto; padding:1.5rem}
+    header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+    .avatar{width:96px;height:96px;border-radius:14px;object-fit:cover;border:2px solid rgba(255,255,255,0.06)}
+    h1{font-size:1.5rem;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+    nav{margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:1.5rem;align-items:center;margin-bottom:2rem}
+    .intro{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1.5rem;border-radius:12px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+
+    .card{background:var(--card);padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 0.5rem 0}
+    .card p{margin:0 0 1rem 0;color:var(--muted)}
+    .badges{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}
+    .badge{background:var(--glass);padding:0.35rem 0.6rem;border-radius:999px;font-size:0.8rem;color:var(--muted)}
+    .actions{display:flex;gap:0.5rem}
+    .btn{padding:0.6rem 0.9rem;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+    .btn-out{background:transparent;color:var(--accent);border:1px solid rgba(6,182,212,0.15)}
+    .btn-primary{background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#061125}
+
+    .screenshot{width:100%;height:160px;border-radius:8px;background:linear-gradient(180deg,#061026,#08102a);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.9rem}
+    .screenshot-img{width:100%;height:160px;border-radius:8px;object-fit:cover;border:0;display:block}
+
+    footer{margin-top:2rem;text-align:center;color:var(--muted);font-size:0.9rem;padding:2rem 0}
+
+    @media (max-width:800px){.hero{grid-template-columns:1fr}nav{margin-left:0;margin-top:0.5rem}}
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Arthur Setiawan's GitHub Portfolio</h1>
-    </div>
-    <div class="container">
-        <img src="pic.jpeg" alt="Arthur Setiawan" class="profile-pic">
-        <h1>My Repositories</h1>
-        <div class="repo">
-            <a href="https://github.com/your-username/repo1" target="_blank">Repo 1</a>
-            <p>Description of Repo 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <div class="site">
+    <header>
+      <img src="pic.jpeg" alt="Arthur Setiawan" class="avatar">
+      <div>
+        <h1>Arthur Setiawan</h1>
+        <p class="lead">Full-stack developer — Django, React, DevOps. Building production-ready web apps and APIs.</p>
+      </div>
+      <nav>
+        <a href="https://github.com/arthursetiawan" target="_blank">GitHub</a>
+        <a href="mailto:hello@arthursetiawan.dev">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="intro card">
+        <h2>Featured Project — MotorMarket</h2>
+        <p class="lead">MotorMarket is an online motorcycle auction platform I built with Django and React. It includes image uploads, thumbnail generation, a REST API, and a Channels-based real-time bidding prototype.</p>
+
+        <div class="projects-grid">
+          <article class="card">
+            <img src="screenshots/motormarket-placeholder.svg" alt="MotorMarket screenshot" class="screenshot-img">
+            <h3>MotorMarket</h3>
+            <p>Online motorcycle auction platform with server-rendered pages and a modern API for a React SPA. Designed for portfolio demos and production-ready deployment.</p>
+            <div class="badges">
+              <span class="badge">Django</span>
+              <span class="badge">Django REST Framework</span>
+              <span class="badge">Channels</span>
+              <span class="badge">React (Vite)</span>
+              <span class="badge">Postgres / Redis</span>
+              <span class="badge">sorl-thumbnail</span>
+            </div>
+            <ul style="color:var(--muted);margin:0 0 1rem 1rem;padding:0;">
+              <li>Listings with image upload & thumbnailing</li>
+              <li>Bid model + bid history</li>
+              <li>REST API for listings & bids</li>
+              <li>Channels-based WebSocket consumer for live bidding</li>
+              <li>Docker-compose stack for local dev</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btn-out" href="https://github.com/arthursetiawan/motormarket" target="_blank">View Repo</a>
+              <a class="btn btn-primary" href="https://github.com/arthursetiawan/motormarket" target="_blank">Demo / Setup</a>
+            </div>
+          </article>
+
+          <!-- Add more project cards here if needed -->
         </div>
-        <div class="repo">
-            <a href="https://github.com/your-username/repo2" target="_blank">Repo 2</a>
-            <p>Description of Repo 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+
+      <aside class="card">
+        <h3>Quick Links</h3>
+        <div style="margin:0.6rem 0">
+          <a href="https://github.com/arthursetiawan/motormarket" target="_blank" style="color:var(--muted);text-decoration:none">Motormarket repo</a>
         </div>
-        <div class="repo">
-            <a href="https://github.com/your-username/repo3" target="_blank">Repo 3</a>
-            <p>Description of Repo 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3 style="margin-top:1rem">Hire Me</h3>
+        <p style="color:var(--muted);">Available for backend, full-stack and freelance roles. Email: <a href="mailto:hello@arthursetiawan.dev">hello@arthursetiawan.dev</a></p>
+        <h3 style="margin-top:1rem">Tech Highlights</h3>
+        <div class="badges" style="margin-top:0.5rem">
+          <span class="badge">Python</span>
+          <span class="badge">Django</span>
+          <span class="badge">React</span>
+          <span class="badge">Docker</span>
         </div>
-        <!-- Add more repositories as needed -->
-    </div>
-    <div class="footer">
-        <p>&copy; 2024 Arthur Setiawan</p>
-    </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div>View code on <a href="https://github.com/arthursetiawan" target="_blank" style="color:var(--accent);text-decoration:none">GitHub</a> • © 2026 Arthur Setiawan</div>
+    </footer>
+  </div>
 </body>
 </html>

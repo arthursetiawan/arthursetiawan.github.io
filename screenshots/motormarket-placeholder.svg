@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#061026"/>
+      <stop offset="1" stop-color="#08102a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <!-- Simple motorcycle illustration -->
+  <g transform="translate(120,380) scale(1.6)" fill="none" stroke="#9fdcee" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="120" cy="60" r="48" stroke="#6ee7b7" fill="rgba(0,0,0,0.08)"/>
+    <circle cx="360" cy="60" r="48" stroke="#6ee7b7" fill="rgba(0,0,0,0.08)"/>
+    <path d="M120 60 L190 20 L260 60 L330 40"/>
+    <path d="M190 20 L220 -20 L300 0"/>
+    <path d="M260 60 L300 30"/>
+  </g>
+  <text x="120" y="160" fill="#cfeef8" font-family="Inter, Arial, sans-serif" font-size="48">MotorMarket</text>
+  <text x="120" y="210" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20">Django • DRF • Channels • React (Vite)</text>
+</svg>
