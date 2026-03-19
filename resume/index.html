@@ -5,61 +5,31 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Resume — Arthur Setiawan</title>
   <style>
-    body{font-family:Inter,system-ui,Segoe UI,Arial;background:#f7fafc;color:#0f1724;padding:2rem}
-    .container{max-width:900px;margin:0 auto;background:white;padding:2rem;border-radius:8px;box-shadow:0 6px 24px rgba(2,6,23,0.08)}
-    h1{margin:0 0 0.5rem 0}
-    .meta{color:#475569;margin-bottom:1rem}
-    .section{margin-top:1.25rem}
-    .skills{display:flex;flex-wrap:wrap;gap:0.5rem}
-    .skill{background:#eef2ff;color:#3730a3;padding:0.35rem 0.6rem;border-radius:999px;font-weight:600}
-    a.cta{display:inline-block;margin-top:1rem;padding:0.6rem 0.9rem;background:#06b6d4;color:#061125;border-radius:8px;text-decoration:none;font-weight:700}
+    body{font-family:Inter,system-ui,Arial;background:#0b1220;color:#e6eef6;margin:0;padding:24px}
+    .wrap{max-width:1000px;margin:0 auto}
+    .toolbar{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .btn{background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#061125;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700}
+    .btn-ghost{background:transparent;color:#94a3b8;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:8px;text-decoration:none}
+    .note{color:#94a3b8;margin-top:8px;font-size:14px}
+    .embed-wrap{background:#071026;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+    .fallback{margin-top:8px;color:#94a3b8}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Arthur Setiawan</h1>
-    <div class="meta">Full-stack Data Scientist — Backend + API + Data pipelines • <a href="mailto:hello@arthursetiawan.dev">hello@arthursetiawan.dev</a></div>
-
-    <div class="section">
-      <h2>Professional Summary</h2>
-      <p>Experienced Full-stack Data Scientist focused on building production-ready web applications and data-driven features. Skilled in Python, Django, REST APIs, real-time systems (Channels), and model development/deployment. Passionate about clean code, observability, and delivering customer value.</p>
+  <div class="wrap">
+    <div class="toolbar">
+      <a class="btn" href="2026_Arthur_Setiawan_Resume.pdf" download>Download PDF</a>
+      <a class="btn-ghost" href="../index.html">Back to portfolio</a>
+      <a class="btn-ghost" href="resume.txt">Text version</a>
     </div>
 
-    <div class="section">
-      <h2>Selected Experience & Projects</h2>
-      <ul>
-        <li><strong>MotorMarket</strong> — Online motorcycle auction platform (Django, DRF, Channels, React, Docker). Implemented listings, image handling, bid history, REST API and real-time bidding prototype.</li>
-        <li><strong>Data pipelines</strong> — ETL jobs and model training pipelines using pandas, scikit-learn; delivering production features from ML models.</li>
-        <li><strong>API & integrations</strong> — Designed and maintained REST APIs with proper authentication, pagination, and documentation; integrated third-party storage (S3) and thumbnailing.</li>
-      </ul>
+    <div class="note">Below is the embedded PDF. If your browser does not display PDFs inline, use the Download button or open the PDF in a dedicated viewer.</div>
+
+    <div class="embed-wrap" style="margin-top:12px">
+      <embed src="2026_Arthur_Setiawan_Resume.pdf" type="application/pdf" width="100%" height="840px" />
     </div>
 
-    <div class="section">
-      <h2>Skills</h2>
-      <div class="skills">
-        <span class="skill">Python</span>
-        <span class="skill">Django</span>
-        <span class="skill">Django REST Framework</span>
-        <span class="skill">Channels / WebSockets</span>
-        <span class="skill">React</span>
-        <span class="skill">Docker</span>
-        <span class="skill">Postgres</span>
-        <span class="skill">Redis</span>
-        <span class="skill">pandas</span>
-        <span class="skill">scikit-learn</span>
-        <span class="skill">sorl-thumbnail</span>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Education</h2>
-      <p>Relevant degree / certifications (add specifics in the PDF)</p>
-    </div>
-
-    <div class="section">
-      <a class="cta" href="2026_Arthur_Setiawan_Resume.pdf" download>Download PDF Resume</a>
-      <p style="color:#64748b;margin-top:0.6rem">(If the PDF is not present, add <code>2026_Arthur_Setiawan_Resume.pdf</code> to this folder to enable direct download.)</p>
-    </div>
+    <div class="fallback">If the embedded preview does not work, <a href="2026_Arthur_Setiawan_Resume.pdf" style="color:#cfeef8">click here to open the PDF</a> or view the <a href="resume.txt" style="color:#cfeef8">plain-text version</a>. Other useful formats: HTML (this page) and plain text. If you want a Markdown or JSON resume for job systems, I can add that too.</div>
   </div>
 </body>
 </html>
