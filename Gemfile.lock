@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    jekyll (4.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jekyll (~> 4.3)
+
+BUNDLED WITH
+   2.4.13

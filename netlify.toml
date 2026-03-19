@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+  command = ""
+
+# This tells Netlify to publish the repository root (static files are in repo root).
+# If you later add a build step (e.g. npm run build), set `command = "npm run build"`
+# and `publish = "dist"` (or whatever your output folder is).
