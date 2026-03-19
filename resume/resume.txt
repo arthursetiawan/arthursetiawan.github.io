@@ -1,0 +1,19 @@
+Arthur Setiawan — Full-stack Data Scientist
+
+Contact: hello@arthursetiawan.dev
+
+Summary:
+Experienced Full-stack Data Scientist building web apps, APIs, and ML features. Skilled in Python, Django, REST, React, Docker, and model deployment.
+
+Skills:
+- Python, Django, Django REST Framework, Channels
+- React, Vite
+- pandas, numpy, scikit-learn
+- Docker, Postgres, Redis
+- AWS / S3-compatible storage, docker-compose
+
+Projects:
+- MotorMarket: Motorcycle auction platform with listings, images, bids, REST API, and live bidding prototype.
+
+Notes:
+Place the official PDF resume file in this folder as 2026_Arthur_Setiawan_Resume.pdf to enable direct download from the portfolio site.
