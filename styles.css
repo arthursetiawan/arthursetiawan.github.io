@@ -145,9 +145,18 @@ body {
   letter-spacing: -0.05em;
 }
 
+.hero-aim {
+  margin: -0.35rem 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(130, 218, 205, 0.92);
+}
+
 .hero h1 {
   margin: 0;
-  max-width: 14ch;
+  max-width: 22ch;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.55rem, 3vw, 2.25rem);
