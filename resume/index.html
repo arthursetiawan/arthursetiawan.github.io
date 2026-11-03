@@ -1,36 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Resume — Arthur Setiawan</title>
-  <style>
-    body{font-family:Inter,system-ui,Arial;background:#0b1220;color:#e6eef6;margin:0;padding:24px}
-    .wrap{max-width:1000px;margin:0 auto}
-    .toolbar{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-    .btn{background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#061125;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700}
-    .btn-ghost{background:transparent;color:#94a3b8;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:8px;text-decoration:none}
-    .note{color:#94a3b8;margin-top:8px;font-size:14px}
-    .embed-wrap{background:#071026;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
-    .fallback{margin-top:8px;color:#94a3b8}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="toolbar">
-      <a class="btn" href="2026_Arthur_Setiawan_Resume.pdf" download>Download PDF</a>
-      <a class="btn-ghost" href="html_resume.html" target="_blank">HTML version</a>
-      <a class="btn-ghost" href="../index.html">Back to portfolio</a>
-      <a class="btn-ghost" href="resume.txt">Text version</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume — Arthur Setiawan</title>
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #132029;
+        --muted: #4d6270;
+        --teal: #0f6e63;
+        --font-display: "Syne", sans-serif;
+        --font-body: "Figtree", sans-serif;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        color: var(--ink);
+        background: linear-gradient(180deg, #f4f8fa, #dce6ee);
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1.25rem;
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      h1 {
+        margin: 0 auto 0 0;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        letter-spacing: -0.03em;
+      }
+      a {
+        color: var(--teal);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.55rem 0.9rem;
+        border-radius: 999px;
+        background: var(--teal);
+        color: #fff;
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--ink);
+        border: 1px solid rgba(19, 32, 41, 0.12);
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0 0 0.85rem;
+      }
+      iframe {
+        width: 100%;
+        height: min(85vh, 1100px);
+        border: 0;
+        background: #fff;
+        box-shadow: 0 20px 50px rgba(16, 28, 40, 0.14);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="toolbar">
+        <h1>Resume</h1>
+        <a class="btn" href="2026_Arthur_Setiawan_Resume.pdf" download>Download PDF</a>
+        <a class="btn btn-ghost" href="../index.html">Back to portfolio</a>
+      </div>
+      <p class="note">Embedded PDF of the current resume.</p>
+      <iframe
+        title="Arthur Setiawan resume PDF"
+        src="2026_Arthur_Setiawan_Resume.pdf"
+      ></iframe>
     </div>
-
-    <div class="note">Below is the embedded PDF. If your browser does not display PDFs inline, use the Download button or open the PDF in a dedicated viewer.</div>
-
-    <div class="embed-wrap" style="margin-top:12px">
-      <embed src="2026_Arthur_Setiawan_Resume.pdf" type="application/pdf" width="100%" height="840px" />
-    </div>
-
-    <div class="fallback">If the embedded preview does not work, <a href="2026_Arthur_Setiawan_Resume.pdf" style="color:#cfeef8">click here to open the PDF</a> or view the <a href="resume.txt" style="color:#cfeef8">plain-text version</a>. Other useful formats: HTML (this page) and plain text. If you want a Markdown or JSON resume for job systems, I can add that too.</div>
-  </div>
-</body>
+  </body>
 </html>

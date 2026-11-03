@@ -1,119 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arthur Setiawan — Full-stack Data Scientist</title>
-  <link rel="icon" href="favicon.ico" />
-  <style>
-    :root{--bg:#0b1220;--card:#0f1724;--muted:#9aa7b8;--accent:#06b6d4;--accent-2:#7c3aed}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;color:#e6eef6;background:linear-gradient(180deg,#071029 0%,#081129 60%);-webkit-font-smoothing:antialiased}
-    .wrap{max-width:1100px;margin:40px auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center}
-    .avatar{width:84px;height:84px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.04)}
-    h1{font-size:20px;margin:0}
-    .sub{color:var(--muted);margin-top:6px;font-size:14px}
-    nav{margin-left:auto}
-    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
-
-    .layout{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:22px}
-
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
-    .projects{display:grid;gap:12px}
-
-    .project-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .thumb{width:100%;height:140px;border-radius:8px;object-fit:cover;background:linear-gradient(180deg,#061026,#08102a);display:block}
-    h3{margin:8px 0 6px 0}
-    p.lead{color:var(--muted);margin:0;font-size:14px}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .badge{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .meta-list{color:var(--muted);margin:8px 0 0 14px;padding:0}
-    .actions{display:flex;gap:10px;margin-top:12px}
-    .btn{padding:8px 12px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
-    .btn-ghost{background:transparent;color:var(--accent);border:1px solid rgba(6,182,212,0.12)}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#061125}
-
-    aside .resume-title{font-size:15px;margin:0 0 6px 0}
-    .small{font-size:13px;color:var(--muted)}
-
-    footer{text-align:center;color:var(--muted);margin-top:28px;font-size:13px}
-
-    @media (max-width:900px){.layout{grid-template-columns:1fr} .project-row{grid-template-columns:1fr} nav{display:none}}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <img src="pic.jpeg" alt="Arthur Setiawan" class="avatar">
-      <div>
-        <h1>Arthur Setiawan</h1>
-        <div class="sub">Full-stack Data Scientist — ML pipelines, model deployment, and production web apps</div>
-      </div>
-      <nav>
-        <a href="https://github.com/arthursetiawan" target="_blank">GitHub</a>
-        <a href="resume/index.html" target="_blank">Resume</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arthur Setiawan — Data Scientist</title>
+    <meta
+      name="description"
+      content="Arthur Setiawan is a Seattle data scientist who owns the full DS lifecycle — from modeling through production deployment, monitoring, and ongoing maintenance for automotive systems."
+    />
+    <meta property="og:title" content="Arthur Setiawan — Data Scientist" />
+    <meta
+      property="og:description"
+      content="Automotive data science with production deployment, MLOps, and post-launch ownership. Based in Seattle."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0d171f" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="#top">Arthur Setiawan</a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#focus">Focus</a>
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#experience">Experience</a>
+        <a class="nav-resume" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
       </nav>
     </header>
 
-    <div class="layout">
-      <main>
-        <section class="card">
-          <h2 style="margin:0 0 8px 0">Selected Projects</h2>
-          <p class="small" style="margin:0 0 12px 0;color:var(--muted)">Work samples focused on automotive data, recommendations and production-ready systems.</p>
-
-          <div class="projects">
-            <div class="project-row">
-              <div class="card">
-                <img src="screenshots/motormarket-placeholder.svg" alt="MotorMarket" class="thumb">
-                <h3>MotorMarket</h3>
-                <p class="lead">Django-based auction app with image uploads, thumbnails, REST API and a Channels real-time bidding prototype.</p>
-                <div class="badges"><span class="badge">Django</span><span class="badge">DRF</span><span class="badge">Channels</span></div>
-                <ul class="meta-list"><li>Listings, bids, image handling</li><li>API-first with optional React SPA</li></ul>
-                <div class="actions"><a class="btn btn-ghost" href="https://github.com/arthursetiawan/motormarket" target="_blank">View Repo</a><a class="btn btn-primary" href="https://github.com/arthursetiawan/motormarket" target="_blank">Setup</a></div>
-              </div>
-
-              <div class="card">
-                <img src="screenshots/car_recommender-placeholder.svg" alt="Car Recommender" class="thumb">
-                <h3>Car Recommender</h3>
-                <p class="lead">Recommendation engine built from scrapers, feature engineering and a lightweight serving API. Designed for fast iteration using hosted Supabase and flexible JSON storage.</p>
-                <div class="badges"><span class="badge">Scraping</span><span class="badge">ML</span><span class="badge">Supabase</span></div>
-                <ul class="meta-list"><li>Scrapers for Cars.com / CarGurus</li><li>Feature engineering + recommendation_engine.py</li><li>Supabase for JSONB-style flexible records & realtime</li></ul>
-                <div class="actions"><a class="btn btn-ghost" href="https://github.com/arthursetiawan/car_recommender" target="_blank">View Repo</a><a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender" target="_blank">Setup</a></div>
-              </div>
-            </div>
-
-            <div class="card" style="display:flex;gap:12px;align-items:center">
-              <div style="flex:1">
-                <h3 style="margin:0 0 6px 0">More work & demos</h3>
-                <p class="small" style="margin:0">Docker-compose dev stacks, data pipelines, model training scripts and API deployments. Open to discussing showcases or walkthroughs for interviews.</p>
-              </div>
-              <div>
-                <a class="btn btn-ghost" href="https://github.com/arthursetiawan" target="_blank">All repos</a>
-              </div>
-            </div>
-
-          </div>
-        </section>
-      </main>
-
-      <aside>
-        <div class="card">
-          <h4 class="resume-title">Resume — Full-stack Data Scientist</h4>
-          <div class="small">Focused on ML pipelines, model deployment, and production services. Available for backend & ML roles.</div>
-          <div class="badges" style="margin-top:12px"><span class="badge">Python</span><span class="badge">scikit-learn</span><span class="badge">pandas</span><span class="badge">Docker</span></div>
-          <div style="margin-top:12px" class="actions"><a class="btn btn-ghost" href="resume/index.html" target="_blank">View</a><a class="btn btn-primary" href="resume/2026_Arthur_Setiawan_Resume.pdf" download>Download</a></div>
-          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:14px 0">
-          <h4 style="margin:0 0 8px 0">Contact</h4>
-          <div class="small">Email: <a href="mailto:rthrsetiawan@gmail.com" style="color:var(--muted)">rthrsetiawan@gmail.com</a></div>
-          <div style="margin-top:12px"><a href="https://github.com/arthursetiawan" target="_blank" class="small">github.com/arthursetiawan</a></div>
+    <main id="top">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="assets/arthur.jpg"
+            alt=""
+            width="1282"
+            height="1308"
+            fetchpriority="high"
+          />
         </div>
-      </aside>
-    </div>
+        <div class="hero-copy">
+          <p class="brand">Arthur Setiawan</p>
+          <h1>Data scientist for the automotive value chain.</h1>
+          <p class="lede">
+            I own the full data science lifecycle — framing the problem, building the
+            model, deploying to production, and staying accountable for monitoring and
+            maintenance after launch.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#work">View selected work</a>
+            <a class="btn btn-ghost" href="mailto:rthrsetiawan@gmail.com">Get in touch</a>
+          </div>
+        </div>
+      </section>
 
-    <footer>
-      <div>© 2026 Arthur Setiawan • Portfolio</div>
+      <section id="focus" class="section roles-section">
+        <div class="section-head">
+          <h2>Where I add the most value</h2>
+          <p>
+            Strongest when I can carry work across the full lifecycle — not hand off at
+            the notebook, and not disappear after deploy.
+          </p>
+        </div>
+
+        <ol class="lifecycle" aria-label="Data science lifecycle">
+          <li><span>1</span> Problem &amp; data</li>
+          <li><span>2</span> Model &amp; validate</li>
+          <li><span>3</span> Deploy to production</li>
+          <li><span>4</span> Monitor &amp; maintain</li>
+        </ol>
+
+        <div class="role-map">
+          <article>
+            <h3>Full DS lifecycle</h3>
+            <p class="role-hook">Own the work from question through lasting value</p>
+            <ul>
+              <li>Problem framing, feature work, modeling, and validation</li>
+              <li>Elasticity pricing, ETA, and stocking models in live business use</li>
+              <li>Iterate with stakeholders after launch as data and needs shift</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Production deployment</h3>
+            <p class="role-hook">Ship models as reliable services, not one-off demos</p>
+            <ul>
+              <li>Peer review, UAT, and production-ready release practices</li>
+              <li>Model-backed APIs integrated with Salesforce and downstream tools</li>
+              <li>Containerized services with CI/CD, Docker, and clear run paths</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Data platforms</h3>
+            <p class="role-hook">Keep the inputs trustworthy after the model is live</p>
+            <ul>
+              <li>Azure scrape → clean → warehouse flows that stay operable</li>
+              <li>dbt, Snowflake, Spark, SQL, and pandas for durable pipelines</li>
+              <li>Governed sources of truth teams can keep using day to day</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Post-deploy ownership</h3>
+            <p class="role-hook">Maintain, improve, and support systems in production</p>
+            <ul>
+              <li>Ongoing care for pricing, stocking, and dealer analytics systems</li>
+              <li>Dashboards and APIs serving hundreds of dealers after go-live</li>
+              <li>Automation and runbooks that reduce toil and make handoffs safer</li>
+            </ul>
+          </article>
+        </div>
+
+        <dl class="impact-strip" aria-label="Selected impact">
+          <div>
+            <dt>$600M</dt>
+            <dd>parts revenue in pricing-model scope</dd>
+          </div>
+          <div>
+            <dt>91%</dt>
+            <dd>reduction in warehouse lead-time error</dd>
+          </div>
+          <div>
+            <dt>~700</dt>
+            <dd>dealers supported with live analytics</dd>
+          </div>
+          <div>
+            <dt>~6k/day</dt>
+            <dd>supplier orders in stocking models</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="work" class="section work-section">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <p>
+            Examples that show deployment into real workflows — and the maintenance that
+            follows — alongside open-source product work.
+          </p>
+        </div>
+
+        <article class="feature">
+          <div class="feature-media">
+            <img
+              src="assets/drivequest-radar.svg"
+              alt="DriveQuest hexagonal radar comparing car scores"
+              width="640"
+              height="420"
+            />
+            <img
+              class="feature-inset"
+              src="assets/drivequest-car.jpg"
+              alt="Sample inventory vehicle used by DriveQuest"
+              width="800"
+              height="500"
+            />
+          </div>
+          <div class="feature-copy">
+            <p class="eyebrow">Open source · FastAPI · LangChain · Docker</p>
+            <h3>DriveQuest</h3>
+            <p>
+              A conversational car advisor with quest-style intake, hexagonal scoring,
+              EV tradeoffs, ROI break-even, scrapers, and a multi-tenant dealer embed
+              with inventory ingest.
+            </p>
+            <ul class="plain-list">
+              <li>End-to-end path: data → scoring → API/UI → dealer embed</li>
+              <li>Dockerized deploy with documentation and a no-key demo mode</li>
+              <li>Designed to be operated and extended after the first release</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender"
+                >View repository</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/arthursetiawan/car_recommender/tree/main/docs"
+                >Architecture notes</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <div class="project-rail">
+          <article class="rail-item">
+            <h3>Pricing systems · PACCAR Parts</h3>
+            <p>
+              Elasticity modeling deployed through Salesforce APIs for discount guidance,
+              then maintained as part of ongoing monetization support on a large parts
+              portfolio.
+            </p>
+            <p class="meta">Python · regression · Salesforce · production APIs</p>
+          </article>
+          <article class="rail-item">
+            <h3>Stocking &amp; ETA · PACCAR Parts</h3>
+            <p>
+              Predictive stocking for thousands of daily supplier orders and warehouse
+              ETA models shipped with CI/CD and UAT — then kept healthy in production as
+              order volume and conditions change.
+            </p>
+            <p class="meta">scikit-learn · CI/CD · UAT · logistics</p>
+          </article>
+          <article class="rail-item">
+            <h3>InsightsHub · dealer analytics</h3>
+            <p>
+              Geospatial truck-fault signals for conquesting and parts leads, with live
+              Salesforce dashboards still serving hundreds of dealers after launch.
+            </p>
+            <p class="meta">Geospatial · Salesforce · ongoing dealer support</p>
+          </article>
+          <article class="rail-item">
+            <h3>Market intelligence · CDW-G</h3>
+            <p>
+              Azure-hosted research pipeline from scraping through warehousing and NER
+              into Power BI — built as a durable system sales teams could keep running.
+            </p>
+            <p class="meta">Azure · NLP · Power BI · operable pipelines</p>
+          </article>
+          <article class="rail-item">
+            <h3>Permitting automation · MasTec</h3>
+            <p>
+              Automation into Primavera P6 that returned substantial scheduling capacity,
+              with ArcGIS-backed Power BI reporting for clients.
+            </p>
+            <p class="meta">RPA · ArcGIS · Power BI</p>
+          </article>
+          <article class="rail-item">
+            <h3>Seattle cycling forecast</h3>
+            <p>
+              Academic time-series project on Fremont Bridge ridership using SDOT
+              counter data — cleaning, exploration, and forecasting in Python.
+            </p>
+            <p class="meta">pandas · matplotlib · forecasting</p>
+            <a class="text-link" href="https://github.com/arthursetiawan/DATA_5100_Project"
+              >View repository</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section id="stack" class="section stack-section">
+        <div class="section-head">
+          <h2>Tools I use often</h2>
+          <p>From analysis through platforms, services, and business activation.</p>
+        </div>
+        <div class="stack-grid">
+          <div>
+            <h3>Languages</h3>
+            <p>Python, SQL, R, DAX, Power Query M, Java</p>
+          </div>
+          <div>
+            <h3>ML / AI</h3>
+            <p>scikit-learn, TensorFlow/Keras, Hugging Face, NLP, LangChain, forecasting</p>
+          </div>
+          <div>
+            <h3>Data platforms</h3>
+            <p>Snowflake, dbt, Spark, Hadoop, Postgres, pandas, Supabase</p>
+          </div>
+          <div>
+            <h3>Deploy &amp; maintain</h3>
+            <p>Git, CI/CD, Docker, Terraform, Azure, AWS, FastAPI, GitHub Actions, UAT</p>
+          </div>
+          <div>
+            <h3>Business systems</h3>
+            <p>Salesforce, Power BI, Tableau, Looker, REST APIs</p>
+          </div>
+          <div>
+            <h3>Domain</h3>
+            <p>Automotive and heavy-duty parts, dealers, pricing, logistics</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section experience-section">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>MS Data Science, Seattle University (3.94 GPA) · BA Mathematics, University of Washington.</p>
+        </div>
+        <ol class="timeline">
+          <li>
+            <div class="when">Aug 2024 — Present</div>
+            <div>
+              <h3>Data Scientist · PACCAR Parts · Renton, WA</h3>
+              <p>
+                Own production pricing, stocking, ETA, InsightsHub, and dealer Salesforce
+                analytics through deployment and ongoing maintenance. Converted from
+                internship after strong performance reviews and a full-time offer from
+                leadership.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jan — Jun 2024</div>
+            <div>
+              <h3>Data Science Intern · CDW-G · Seattle</h3>
+              <p>
+                Built cloud market-research automation for federal sales — scraping,
+                warehousing, NER, and Power BI delivery.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Dec 2019 — Sep 2022</div>
+            <div>
+              <h3>Data Analyst · MasTec · Seattle</h3>
+              <p>
+                Permitting automation and geospatial client reporting, including RPA into
+                Primavera P6 and ArcGIS-backed dashboards.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <p class="langs">
+          Native English and Bahasa Indonesia · Conversational Mandarin
+        </p>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>
+            Open to conversations about data science roles that need owners for the full
+            lifecycle — deploy, operate, and improve after launch.
+          </p>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:rthrsetiawan@gmail.com">rthrsetiawan@gmail.com</a>
+          <a href="https://www.linkedin.com/in/arthursetiawan/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/arthursetiawan" rel="noopener">GitHub</a>
+          <a href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle</p>
     </footer>
-  </div>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
