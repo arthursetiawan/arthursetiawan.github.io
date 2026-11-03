@@ -12,7 +12,10 @@
   --night-soft: #1a2833;
   --hero-surface: #ecf2f7;
   --hero-surface-deep: #dde6ef;
-  --hero-ink-muted: #3a4d5c;
+  --hero-ink: #0a0a0a;
+  --hero-ink-body: #1a1a1a;
+  --hero-forest: #0d3d2e;
+  --hero-ink-muted: #243d34;
   --shadow: 0 30px 80px rgba(8, 16, 24, 0.28);
   --font-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
   --font-body: "Figtree", "Segoe UI", sans-serif;
@@ -64,9 +67,9 @@ body {
   font-weight: 800;
   font-size: 1rem;
   letter-spacing: -0.03em;
-  color: #f4f8fb;
+  color: var(--hero-ink);
   text-decoration: none;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+  text-shadow: none;
 }
 
 .topnav {
@@ -77,7 +80,7 @@ body {
 }
 
 .topnav a {
-  color: rgba(244, 248, 251, 0.82);
+  color: var(--hero-ink-body);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
@@ -85,16 +88,16 @@ body {
 
 .topnav a:hover,
 .text-link:hover {
-  color: #fff;
+  color: var(--hero-forest);
 }
 
 .nav-resume {
   padding: 0.42rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(16, 24, 32, 0.22);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--hero-ink);
   color: #fff !important;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(16, 24, 32, 0.12);
 }
 
 .hero {
@@ -105,7 +108,7 @@ body {
   display: grid;
   align-items: end;
   overflow: hidden;
-  color: var(--ink);
+  color: var(--hero-ink);
   background-color: var(--hero-surface);
   background-image: linear-gradient(
     165deg,
@@ -143,6 +146,7 @@ body {
   font-size: clamp(3rem, 8vw, 5.6rem);
   line-height: 0.92;
   letter-spacing: -0.05em;
+  color: var(--hero-ink);
 }
 
 .hero-aim {
@@ -151,7 +155,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--teal-deep);
+  color: var(--hero-forest);
 }
 
 .hero h1 {
@@ -162,12 +166,13 @@ body {
   font-size: clamp(1.55rem, 3vw, 2.25rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
+  color: var(--hero-forest);
 }
 
-.lede {
+.hero .lede {
   margin: 1.05rem 0 0;
   max-width: 34rem;
-  color: var(--hero-ink-muted);
+  color: var(--hero-ink-body);
   font-size: 1.08rem;
 }
 
@@ -184,9 +189,9 @@ body {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(16, 24, 32, 0.16);
-  color: var(--ink);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(13, 61, 46, 0.22);
+  color: var(--hero-ink);
 }
 
 .about-pull {
@@ -252,15 +257,15 @@ body {
 
 .hero .btn-ghost {
   background: #fff;
-  color: var(--ink);
-  border-color: rgba(16, 24, 32, 0.22);
+  color: var(--hero-ink);
+  border-color: rgba(13, 61, 46, 0.28);
   box-shadow: 0 1px 2px rgba(16, 24, 32, 0.08);
 }
 
 .hero .btn-ghost:hover {
   background: #f7fafc;
-  border-color: rgba(13, 107, 97, 0.35);
-  color: var(--teal-deep);
+  border-color: rgba(13, 61, 46, 0.45);
+  color: var(--hero-forest);
 }
 
 .section .btn-ghost {
@@ -615,25 +620,6 @@ body {
     display: none;
   }
 
-  .wordmark {
-    color: var(--ink);
-    text-shadow: none;
-  }
-
-  .topnav a:not(.nav-resume) {
-    color: var(--hero-ink-muted);
-  }
-
-  .topnav a:not(.nav-resume):hover {
-    color: var(--ink);
-  }
-
-  .nav-resume {
-    border-color: rgba(16, 24, 32, 0.22);
-    background: var(--ink);
-    color: #fff !important;
-    box-shadow: 0 1px 2px rgba(16, 24, 32, 0.12);
-  }
 }
 
 @media (max-width: 560px) {
@@ -684,9 +670,29 @@ body {
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
-  .wordmark,
-  .topnav a {
+  .wordmark {
+    color: #f8fbfd;
     text-shadow: none;
+  }
+
+  .topnav a {
+    color: rgba(248, 251, 253, 0.92);
+    text-shadow: none;
+  }
+
+  .topnav a:hover {
+    color: #fff;
+  }
+
+  .nav-resume {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff !important;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .nav-resume:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
 
   main {
