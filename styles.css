@@ -325,6 +325,40 @@ body {
   letter-spacing: -0.03em;
 }
 
+.project-rail--personal {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.rail-item--card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.25rem;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  box-shadow: 0 12px 40px rgba(8, 16, 24, 0.06);
+}
+
+.rail-item--card .eyebrow {
+  margin-bottom: 0.25rem;
+}
+
+.cta-row--card {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  gap: 0.55rem 0.65rem;
+}
+
+.cta-row--card .btn {
+  font-size: 0.86rem;
+  padding: 0.55rem 0.95rem;
+}
+
+.projects-more {
+  margin: 1.35rem 0 0;
+}
+
 .project-rail--tight {
   margin-top: 1.25rem;
 }
@@ -613,6 +647,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .project-rail--personal {
+    grid-template-columns: 1fr;
+  }
+
   .feature,
   .project-rail,
   .role-map,
@@ -625,10 +663,14 @@ body {
 
   .role-map,
   .lifecycle,
-  .project-rail,
+  .project-rail:not(.project-rail--personal),
   .stack-grid,
   .impact-strip {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .project-rail--personal {
+    grid-template-columns: 1fr;
   }
 
   .hero-copy {

@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=9c06wp" />
+    <link rel="stylesheet" href="styles.css?v=9c07pr" />
   </head>
   <body>
     <header class="topbar">
@@ -46,56 +46,87 @@
             the operators and drivers who depend on the output.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
-            <a class="btn btn-ghost" href="about.html#contact">Get in touch</a>
-            <a class="btn btn-ghost" href="work.html" aria-current="page">Selected work</a>
+            <a class="btn btn-primary" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume (PDF)</a>
+            <a class="btn btn-ghost" href="index.html">Home</a>
+            <a class="btn btn-ghost" href="about.html">About</a>
+            <a class="btn btn-ghost" href="about.html#contact">Contact</a>
           </div>
         </div>
 
-        <div class="work-block">
+        <div class="work-block" id="personal">
           <h2 class="work-block-title">Personal projects</h2>
 
-          <article class="feature">
-            <div class="feature-media">
-              <img
-                src="assets/drivequest-radar.svg"
-                alt="DriveQuest hexagonal radar comparing car scores"
-                width="640"
-                height="420"
-              />
-              <img
-                class="feature-inset"
-                src="assets/drivequest-car.jpg"
-                alt="Sample inventory vehicle used by DriveQuest"
-                width="800"
-                height="500"
-              />
-            </div>
-            <div class="feature-copy">
-              <p class="eyebrow">Open source · FastAPI · LangChain · Docker</p>
-              <h3>DriveQuest</h3>
+          <div class="project-rail project-rail--personal">
+            <article class="rail-item rail-item--card">
+              <p class="eyebrow">Next.js · TypeScript · Tailwind</p>
+              <h3>Tawarkan</h3>
               <p>
-                A conversational car advisor with structured scoring, EV tradeoffs, and dealer
-                inventory ingest — practice building user-facing automotive software where
-                recommendations need clear logic, testable rules, and a path to production.
+                Marketplace <em>tawar-menawar</em> for phones and gadgets in Indonesia — sellers
+                list an ask price, buyers accept or counter until <strong>Sepakat</strong> or
+                walk-away.
               </p>
-              <ul class="plain-list">
-                <li>Multi-signal scoring and intake: messy preferences → explainable outputs</li>
-                <li>FastAPI, Docker, scrapers, and a multi-tenant embed teams can operate</li>
-                <li>Same muscles as mobility products: data quality, APIs, and post-launch iteration</li>
-              </ul>
-              <div class="cta-row">
-                <a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender"
-                  >View repository</a
+              <div class="cta-row cta-row--card">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/arthursetiawan/tawarkan"
+                  rel="noopener"
+                  >Repository</a
                 >
                 <a
                   class="btn btn-ghost"
-                  href="https://github.com/arthursetiawan/car_recommender/tree/main/docs"
-                  >Architecture notes</a
+                  href="https://arthursetiawan.github.io/tawarkan/"
+                  rel="noopener"
+                  >Live demo</a
                 >
               </div>
-            </div>
-          </article>
+            </article>
+
+            <article class="rail-item rail-item--card">
+              <p class="eyebrow">Django · Channels · sklearn · Docker</p>
+              <h3>MotorMarket</h3>
+              <p>
+                Online bidding for automotive and motorcycles — server-rendered listings, realtime
+                bids, REST API, and a tabular ML pipeline for sold-price estimates (NegoMotor).
+              </p>
+              <div class="cta-row cta-row--card">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/arthursetiawan/motormarket"
+                  rel="noopener"
+                  >Repository</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://arthursetiawan.github.io/motormarket/"
+                  rel="noopener"
+                  >Live demo</a
+                >
+              </div>
+            </article>
+
+            <article class="rail-item rail-item--card">
+              <p class="eyebrow">FastAPI · LangChain · Docker</p>
+              <h3>DriveQuest</h3>
+              <p>
+                LangChain-powered car advisor — chat or tap chips to narrow budget and priorities,
+                then compare contenders on a hexagonal radar across value, reliability, and safety.
+              </p>
+              <div class="cta-row cta-row--card">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/arthursetiawan/car_recommender"
+                  rel="noopener"
+                  >Repository</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://arthursetiawan.github.io/car_recommender/drivequest/"
+                  rel="noopener"
+                  >Live demo</a
+                >
+              </div>
+            </article>
+          </div>
 
           <div class="project-rail project-rail--tight">
             <article class="rail-item">
