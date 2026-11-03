@@ -3,7 +3,7 @@
   if (year) year.textContent = String(new Date().getFullYear());
 
   const revealTargets = document.querySelectorAll(
-    ".section-head, .lifecycle, .role-map article, .impact-strip, .feature, .rail-item, .stack-grid > div, .timeline li, .contact-row, .langs"
+    ".section-head, .about-section p, .lifecycle, .role-map article, .impact-strip, .feature, .rail-item, .stack-grid > div, .timeline li, .contact-row, .langs"
   );
   revealTargets.forEach((el) => el.classList.add("reveal"));
 
