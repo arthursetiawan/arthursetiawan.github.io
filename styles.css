@@ -14,6 +14,8 @@
   --font-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
   --font-body: "Figtree", "Segoe UI", sans-serif;
   --max: 1160px;
+  --compact-topbar: 2.75rem;
+  --compact-hero: clamp(9.5rem, 22vh, 11.5rem);
 }
 
 *,
@@ -616,5 +618,440 @@ body {
 
   .hero-media img {
     transform: none;
+  }
+}
+
+/* Desktop: single viewport, compact hero portrait, dense multi-column body */
+@media (min-width: 901px) {
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.45;
+  }
+
+  .topbar {
+    position: relative;
+    flex-shrink: 0;
+    padding: 0.45rem 1.25rem;
+    min-height: var(--compact-topbar);
+    background: var(--night);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .wordmark,
+  .topnav a {
+    text-shadow: none;
+  }
+
+  main {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr) minmax(0, 0.9fr);
+    grid-template-rows: var(--compact-hero) minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.55fr);
+    max-width: none;
+    overflow: hidden;
+  }
+
+  .hero {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 0;
+    height: var(--compact-hero);
+    max-height: var(--compact-hero);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) min(22vw, 11.5rem);
+    align-items: stretch;
+    background: var(--night);
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .hero-media {
+    position: relative;
+    grid-column: 2;
+    inset: auto;
+    max-height: 100%;
+    overflow: hidden;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    max-height: var(--compact-hero);
+    object-fit: cover;
+    object-position: 50% 12%;
+    transform: none;
+    animation: none;
+  }
+
+  .hero-media::after {
+    background:
+      linear-gradient(90deg, rgba(8, 14, 20, 0.92) 0%, rgba(8, 14, 20, 0.55) 55%, rgba(8, 14, 20, 0.15) 100%),
+      linear-gradient(0deg, rgba(8, 14, 20, 0.35) 0%, transparent 45%);
+  }
+
+  .hero-copy {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.65rem 1.25rem 0.75rem;
+    max-width: var(--max);
+    margin: 0 auto 0 0;
+    width: 100%;
+  }
+
+  .brand {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+    line-height: 1;
+  }
+
+  .hero h1 {
+    max-width: 28ch;
+    font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+    line-height: 1.2;
+  }
+
+  .lede {
+    margin: 0.45rem 0 0;
+    max-width: 42rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .hero .cta-row {
+    margin-top: 0.55rem;
+    gap: 0.5rem;
+  }
+
+  .hero .btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  #focus,
+  #work {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #focus {
+    grid-column: 1;
+    grid-row: 2 / 5;
+    border-right: 1px solid var(--line);
+  }
+
+  #work {
+    grid-column: 2;
+    grid-row: 2 / 5;
+    border-right: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  #stack {
+    grid-column: 3;
+    grid-row: 2;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #experience {
+    grid-column: 3;
+    grid-row: 3;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  #contact {
+    grid-column: 3;
+    grid-row: 4;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .section {
+    padding: 0.65rem 0.85rem;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .section-head {
+    margin-bottom: 0.45rem;
+  }
+
+  .section-head h2 {
+    font-size: 1.05rem;
+  }
+
+  .section-head p {
+    margin-top: 0.25rem;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .lifecycle {
+    margin: 0 0 0.45rem;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .lifecycle li {
+    padding: 0.35rem 0;
+    font-size: 0.68rem;
+    gap: 0.4rem;
+  }
+
+  .lifecycle span {
+    width: 1.15rem;
+    height: 1.15rem;
+    font-size: 0.65rem;
+  }
+
+  .role-map {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem 0.65rem;
+  }
+
+  .role-map article {
+    padding-top: 0.4rem;
+  }
+
+  .role-map h3,
+  .rail-item h3,
+  .stack-grid h3,
+  .timeline h3,
+  .feature-copy h3 {
+    font-size: 0.78rem;
+  }
+
+  .role-hook {
+    margin: 0.2rem 0 0.25rem;
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+
+  .role-map ul,
+  .plain-list {
+    padding-left: 0.85rem;
+    font-size: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .role-map li + li,
+  .plain-list li + li {
+    margin-top: 0.15rem;
+  }
+
+  .impact-strip {
+    margin: 0.45rem 0 0;
+    padding: 0.45rem 0 0;
+    gap: 0.35rem 0.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact-strip dt {
+    font-size: 1rem;
+  }
+
+  .impact-strip dd {
+    margin-top: 0.1rem;
+    font-size: 0.62rem;
+    line-height: 1.25;
+  }
+
+  .feature {
+    grid-template-columns: 0.85fr 1fr;
+    gap: 0.5rem 0.65rem;
+    padding-bottom: 0.55rem;
+    align-items: start;
+  }
+
+  .feature-media > img:first-child {
+    max-height: 5.5rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .feature-inset {
+    display: none;
+  }
+
+  .feature-media {
+    align-self: start;
+  }
+
+  .eyebrow {
+    font-size: 0.58rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .feature-copy p {
+    margin: 0.35rem 0 0;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .plain-list {
+    margin-top: 0.35rem;
+    font-size: 0.64rem;
+  }
+
+  .feature .cta-row {
+    margin-top: 0.4rem;
+    gap: 0.35rem;
+  }
+
+  .feature .btn,
+  .section .btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.68rem;
+  }
+
+  .project-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 0.5rem;
+    margin-top: 0.45rem;
+    max-height: none;
+  }
+
+  .rail-item p {
+    margin: 0.2rem 0 0;
+    font-size: 0.64rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta {
+    font-size: 0.58rem !important;
+  }
+
+  .text-link {
+    margin-top: 0.25rem;
+    font-size: 0.65rem;
+  }
+
+  .stack-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .stack-grid p {
+    margin-top: 0.2rem;
+    font-size: 0.64rem;
+    line-height: 1.3;
+  }
+
+  .timeline {
+    gap: 0;
+  }
+
+  .timeline li {
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.35rem 0.5rem;
+    padding: 0.4rem 0;
+  }
+
+  .when {
+    font-size: 0.62rem;
+    line-height: 1.25;
+  }
+
+  .timeline p {
+    margin: 0.2rem 0 0;
+    font-size: 0.64rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .langs {
+    margin: 0.35rem 0 0;
+    font-size: 0.64rem;
+  }
+
+  .contact-row {
+    gap: 0.35rem 0.65rem;
+  }
+
+  .contact-row a {
+    font-size: 0.72rem;
+    padding-bottom: 0.05rem;
+    border-bottom-width: 1px;
+  }
+
+  .site-footer {
+    flex-shrink: 0;
+    padding: 0.35rem 1.25rem 0.45rem;
+    font-size: 0.68rem;
+    max-width: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 820px) {
+  :root {
+    --compact-hero: clamp(8.25rem, 17vh, 9.75rem);
+    --compact-topbar: 2.5rem;
+  }
+
+  .section {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .section-head h2 {
+    font-size: 0.98rem;
+  }
+
+  .brand {
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+  }
+
+  .hero h1 {
+    font-size: 1rem;
+  }
+
+  .lede {
+    font-size: 0.76rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .impact-strip dt {
+    font-size: 0.92rem;
+  }
+
+  .feature-media > img:first-child {
+    max-height: 4.75rem;
   }
 }
