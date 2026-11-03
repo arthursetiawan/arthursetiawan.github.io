@@ -303,11 +303,30 @@ body {
   font-size: clamp(1.9rem, 3.2vw, 2.55rem);
 }
 
-.feature-copy h2 {
+.feature-copy h2,
+.feature-copy h3 {
   margin: 0;
   font-family: var(--font-display);
   letter-spacing: -0.03em;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+.work-block {
+  margin-top: 2.75rem;
+}
+
+.work-block-title {
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.project-rail--tight {
+  margin-top: 1.25rem;
 }
 
 .section-head p {

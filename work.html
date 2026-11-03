@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=9c05nm" />
+    <link rel="stylesheet" href="styles.css?v=9c06wp" />
   </head>
   <body>
     <header class="topbar">
@@ -52,103 +52,114 @@
           </div>
         </div>
 
-        <article class="feature">
-          <div class="feature-media">
-            <img
-              src="assets/drivequest-radar.svg"
-              alt="DriveQuest hexagonal radar comparing car scores"
-              width="640"
-              height="420"
-            />
-            <img
-              class="feature-inset"
-              src="assets/drivequest-car.jpg"
-              alt="Sample inventory vehicle used by DriveQuest"
-              width="800"
-              height="500"
-            />
-          </div>
-          <div class="feature-copy">
-            <p class="eyebrow">Open source · FastAPI · LangChain · Docker</p>
-            <h2>DriveQuest</h2>
-            <p>
-              A conversational car advisor with structured scoring, EV tradeoffs, and dealer
-              inventory ingest — practice building user-facing automotive software where
-              recommendations need clear logic, testable rules, and a path to production.
-            </p>
-            <ul class="plain-list">
-              <li>Multi-signal scoring and intake: messy preferences → explainable outputs</li>
-              <li>FastAPI, Docker, scrapers, and a multi-tenant embed teams can operate</li>
-              <li>Same muscles as mobility products: data quality, APIs, and post-launch iteration</li>
-            </ul>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender"
+        <div class="work-block">
+          <h2 class="work-block-title">Personal projects</h2>
+
+          <article class="feature">
+            <div class="feature-media">
+              <img
+                src="assets/drivequest-radar.svg"
+                alt="DriveQuest hexagonal radar comparing car scores"
+                width="640"
+                height="420"
+              />
+              <img
+                class="feature-inset"
+                src="assets/drivequest-car.jpg"
+                alt="Sample inventory vehicle used by DriveQuest"
+                width="800"
+                height="500"
+              />
+            </div>
+            <div class="feature-copy">
+              <p class="eyebrow">Open source · FastAPI · LangChain · Docker</p>
+              <h3>DriveQuest</h3>
+              <p>
+                A conversational car advisor with structured scoring, EV tradeoffs, and dealer
+                inventory ingest — practice building user-facing automotive software where
+                recommendations need clear logic, testable rules, and a path to production.
+              </p>
+              <ul class="plain-list">
+                <li>Multi-signal scoring and intake: messy preferences → explainable outputs</li>
+                <li>FastAPI, Docker, scrapers, and a multi-tenant embed teams can operate</li>
+                <li>Same muscles as mobility products: data quality, APIs, and post-launch iteration</li>
+              </ul>
+              <div class="cta-row">
+                <a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender"
+                  >View repository</a
+                >
+                <a
+                  class="btn btn-ghost"
+                  href="https://github.com/arthursetiawan/car_recommender/tree/main/docs"
+                  >Architecture notes</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <div class="project-rail project-rail--tight">
+            <article class="rail-item">
+              <h3>Seattle cycling forecast</h3>
+              <p>
+                Academic time-series project on Fremont Bridge ridership using SDOT
+                counter data — cleaning, exploration, and forecasting in Python.
+              </p>
+              <p class="meta">DATA_5100 · pandas · matplotlib · forecasting</p>
+              <a class="text-link" href="https://github.com/arthursetiawan/DATA_5100_Project"
                 >View repository</a
               >
-              <a
-                class="btn btn-ghost"
-                href="https://github.com/arthursetiawan/car_recommender/tree/main/docs"
-                >Architecture notes</a
-              >
-            </div>
+            </article>
           </div>
-        </article>
+        </div>
 
-        <div class="project-rail">
-          <article class="rail-item">
-            <h3>Pricing systems · PACCAR Parts</h3>
-            <p>
-              Elasticity modeling deployed through Salesforce APIs for discount guidance,
-              then maintained as part of ongoing monetization support on a large parts
-              portfolio.
-            </p>
-            <p class="meta">Python · regression · Salesforce · production APIs</p>
-          </article>
-          <article class="rail-item">
-            <h3>Stocking &amp; ETA · PACCAR Parts</h3>
-            <p>
-              Time-series forecasting for thousands of daily supplier orders and warehouse
-              ETAs — shipped with CI/CD and UAT, then monitored as volume and conditions
-              shift. Operational prediction at scale, with real cost when the model drifts.
-            </p>
-            <p class="meta">scikit-learn · CI/CD · UAT · logistics forecasting</p>
-          </article>
-          <article class="rail-item">
-            <h3>InsightsHub · dealer analytics</h3>
-            <p>
-              Geospatial truck-fault signals for conquesting and parts leads — spatial
-              data turned into decisions dealers act on, with Salesforce dashboards still
-              live for hundreds of locations after launch.
-            </p>
-            <p class="meta">Geospatial · Salesforce · fleet-adjacent signals</p>
-          </article>
-          <article class="rail-item">
-            <h3>Market intelligence · CDW-G</h3>
-            <p>
-              Azure-hosted research pipeline from scraping through warehousing and NER
-              into Power BI — built as a durable system sales teams could keep running.
-            </p>
-            <p class="meta">Azure · NLP · Power BI · operable pipelines</p>
-          </article>
-          <article class="rail-item">
-            <h3>Permitting automation · MasTec</h3>
-            <p>
-              Automation into Primavera P6 that returned substantial scheduling capacity,
-              with ArcGIS-backed Power BI reporting for clients.
-            </p>
-            <p class="meta">RPA · ArcGIS · Power BI</p>
-          </article>
-          <article class="rail-item">
-            <h3>Seattle cycling forecast</h3>
-            <p>
-              Academic time-series project on Fremont Bridge ridership using SDOT
-              counter data — cleaning, exploration, and forecasting in Python.
-            </p>
-            <p class="meta">pandas · matplotlib · forecasting</p>
-            <a class="text-link" href="https://github.com/arthursetiawan/DATA_5100_Project"
-              >View repository</a
-            >
-          </article>
+        <div class="work-block">
+          <h2 class="work-block-title">Professional experience</h2>
+
+          <div class="project-rail">
+            <article class="rail-item">
+              <h3>Pricing systems · PACCAR Parts</h3>
+              <p>
+                Elasticity modeling deployed through Salesforce APIs for discount guidance,
+                then maintained as part of ongoing monetization support on a large parts
+                portfolio.
+              </p>
+              <p class="meta">Python · regression · Salesforce · production APIs</p>
+            </article>
+            <article class="rail-item">
+              <h3>Stocking &amp; ETA · PACCAR Parts</h3>
+              <p>
+                Time-series forecasting for thousands of daily supplier orders and warehouse
+                ETAs — shipped with CI/CD and UAT, then monitored as volume and conditions
+                shift. Operational prediction at scale, with real cost when the model drifts.
+              </p>
+              <p class="meta">scikit-learn · CI/CD · UAT · logistics forecasting</p>
+            </article>
+            <article class="rail-item">
+              <h3>InsightsHub · dealer analytics</h3>
+              <p>
+                Geospatial truck-fault signals for conquesting and parts leads — spatial
+                data turned into decisions dealers act on, with Salesforce dashboards still
+                live for hundreds of locations after launch.
+              </p>
+              <p class="meta">Geospatial · Salesforce · fleet-adjacent signals</p>
+            </article>
+            <article class="rail-item">
+              <h3>Market intelligence · CDW-G</h3>
+              <p>
+                Azure-hosted research pipeline from scraping through warehousing and NER
+                into Power BI — built as a durable system sales teams could keep running.
+              </p>
+              <p class="meta">Azure · NLP · Power BI · operable pipelines</p>
+            </article>
+            <article class="rail-item">
+              <h3>Permitting automation · MasTec</h3>
+              <p>
+                Automation into Primavera P6 that returned substantial scheduling capacity,
+                with ArcGIS-backed Power BI reporting for clients.
+              </p>
+              <p class="meta">RPA · ArcGIS · Power BI</p>
+            </article>
+          </div>
         </div>
       </section>
     </main>
