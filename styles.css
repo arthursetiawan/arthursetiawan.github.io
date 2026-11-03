@@ -49,6 +49,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  width: 100%;
   background: rgba(243, 247, 250, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -140,22 +141,25 @@ body {
   max-width: var(--max);
   width: 100%;
   margin: 0 auto;
-  padding: 2.75rem 1.25rem 3.25rem;
+  padding: 1.65rem 1.25rem 2.35rem;
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.brand {
-  margin: 0 0 0.85rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3rem, 8vw, 5.6rem);
-  line-height: 0.92;
-  letter-spacing: -0.05em;
-  color: var(--hero-ink);
+.page-marker {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.section-head .page-marker {
+  margin-bottom: 0.45rem;
 }
 
 .hero-aim {
-  margin: -0.35rem 0 0.75rem;
+  margin: 0 0 0.75rem;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -255,28 +259,25 @@ body {
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f4f8fb;
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  border-color: rgba(16, 24, 32, 0.22);
+  box-shadow: 0 1px 2px rgba(16, 24, 32, 0.06);
+}
+
+.btn-ghost:hover {
+  background: #fff;
+  border-color: rgba(16, 24, 32, 0.35);
+  color: var(--teal-deep);
 }
 
 .hero .btn-ghost {
-  background: #fff;
-  color: var(--hero-ink);
   border-color: rgba(13, 61, 46, 0.28);
-  box-shadow: 0 1px 2px rgba(16, 24, 32, 0.08);
 }
 
 .hero .btn-ghost:hover {
-  background: #f7fafc;
   border-color: rgba(13, 61, 46, 0.45);
   color: var(--hero-forest);
-}
-
-.section .btn-ghost {
-  background: rgba(255, 255, 255, 0.55);
-  color: var(--ink);
-  border-color: var(--line);
 }
 
 .section .btn-primary {
@@ -616,11 +617,7 @@ body {
   }
 
   .hero-copy {
-    padding: 2rem 1.15rem 2.5rem;
-  }
-
-  .brand {
-    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    padding: 1.35rem 1.15rem 2rem;
   }
 
   .feature-inset {
