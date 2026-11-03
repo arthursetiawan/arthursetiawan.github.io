@@ -145,19 +145,6 @@ body {
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.page-marker {
-  margin: 0 0 0.55rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--teal-deep);
-}
-
-.section-head .page-marker {
-  margin-bottom: 0.45rem;
-}
-
 .hero-aim {
   margin: 0 0 0.75rem;
   font-size: 0.82rem;
