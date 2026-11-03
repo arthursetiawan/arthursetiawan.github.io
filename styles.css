@@ -10,6 +10,9 @@
   --amber-soft: rgba(196, 122, 34, 0.18);
   --night: #0d171f;
   --night-soft: #1a2833;
+  --hero-surface: #ecf2f7;
+  --hero-surface-deep: #dde6ef;
+  --hero-ink-muted: #3a4d5c;
   --shadow: 0 30px 80px rgba(8, 16, 24, 0.28);
   --font-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
   --font-body: "Figtree", "Segoe UI", sans-serif;
@@ -87,21 +90,29 @@ body {
 
 .nav-resume {
   padding: 0.42rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 999px;
-  background: rgba(13, 23, 31, 0.35);
+  background: rgba(255, 255, 255, 0.14);
   color: #fff !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .hero {
   position: relative;
+  isolation: isolate;
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
   align-items: end;
   overflow: hidden;
-  color: #f4f8fb;
-  background: var(--night);
+  color: var(--ink);
+  background-color: var(--hero-surface);
+  background-image: linear-gradient(
+    165deg,
+    var(--hero-surface) 0%,
+    var(--hero-surface-deep) 55%,
+    #d5e0e9 100%
+  );
 }
 
 .hero::before {
@@ -111,9 +122,8 @@ body {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(115deg, rgba(8, 14, 20, 0.97) 0%, rgba(8, 14, 20, 0.88) 42%, rgba(13, 107, 97, 0.14) 100%),
-    radial-gradient(ellipse 55% 45% at 88% 22%, rgba(196, 122, 34, 0.22), transparent 58%),
-    radial-gradient(ellipse 40% 35% at 12% 88%, rgba(13, 107, 97, 0.18), transparent 55%);
+    radial-gradient(ellipse 55% 45% at 88% 18%, rgba(196, 122, 34, 0.14), transparent 58%),
+    radial-gradient(ellipse 45% 40% at 8% 92%, rgba(13, 107, 97, 0.12), transparent 55%);
 }
 
 .hero-copy {
@@ -141,7 +151,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(130, 218, 205, 0.92);
+  color: var(--teal-deep);
 }
 
 .hero h1 {
@@ -157,7 +167,7 @@ body {
 .lede {
   margin: 1.05rem 0 0;
   max-width: 34rem;
-  color: rgba(232, 238, 243, 0.86);
+  color: var(--hero-ink-muted);
   font-size: 1.08rem;
 }
 
@@ -174,9 +184,9 @@ body {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(232, 238, 243, 0.78);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 24, 32, 0.16);
+  color: var(--ink);
 }
 
 .about-pull {
@@ -238,6 +248,19 @@ body {
   background: rgba(255, 255, 255, 0.08);
   color: #f4f8fb;
   border-color: rgba(255, 255, 255, 0.28);
+}
+
+.hero .btn-ghost {
+  background: #fff;
+  color: var(--ink);
+  border-color: rgba(16, 24, 32, 0.22);
+  box-shadow: 0 1px 2px rgba(16, 24, 32, 0.08);
+}
+
+.hero .btn-ghost:hover {
+  background: #f7fafc;
+  border-color: rgba(13, 107, 97, 0.35);
+  color: var(--teal-deep);
 }
 
 .section .btn-ghost {
@@ -593,7 +616,23 @@ body {
   }
 
   .wordmark {
-    color: #f4f8fb;
+    color: var(--ink);
+    text-shadow: none;
+  }
+
+  .topnav a:not(.nav-resume) {
+    color: var(--hero-ink-muted);
+  }
+
+  .topnav a:not(.nav-resume):hover {
+    color: var(--ink);
+  }
+
+  .nav-resume {
+    border-color: rgba(16, 24, 32, 0.22);
+    background: var(--ink);
+    color: #fff !important;
+    box-shadow: 0 1px 2px rgba(16, 24, 32, 0.12);
   }
 }
 
@@ -668,9 +707,16 @@ body {
     max-height: var(--compact-hero);
     display: flex;
     align-items: stretch;
-    background: var(--night);
+    background-color: var(--hero-surface);
+    background-image: linear-gradient(
+      165deg,
+      var(--hero-surface) 0%,
+      var(--hero-surface-deep) 70%,
+      #d5e0e9 100%
+    );
     overflow: hidden;
     z-index: 2;
+    box-shadow: inset 0 -1px 0 var(--line);
   }
 
   .hero-copy {
