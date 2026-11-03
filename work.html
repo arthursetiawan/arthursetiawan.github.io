@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Selected work — Arthur Setiawan</title>
+    <meta
+      name="description"
+      content="Production automotive ML at PACCAR Parts, DriveQuest open-source car advisor, and selected data science projects."
+    />
+    <meta property="og:title" content="Selected work — Arthur Setiawan" />
+    <meta
+      property="og:description"
+      content="DriveQuest, PACCAR pricing and forecasting, dealer analytics, and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#ecf2f7" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="wordmark" href="index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="work.html" aria-current="page">Work</a>
+          <a href="about.html">About</a>
+          <a class="nav-resume" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section work-section">
+        <div class="section-head">
+          <h1>Selected work</h1>
+          <p>
+            Automotive production ML plus open-source product work — data, deployment, and
+            the operators and drivers who depend on the output.
+          </p>
+        </div>
+
+        <article class="feature">
+          <div class="feature-media">
+            <img
+              src="assets/drivequest-radar.svg"
+              alt="DriveQuest hexagonal radar comparing car scores"
+              width="640"
+              height="420"
+            />
+            <img
+              class="feature-inset"
+              src="assets/drivequest-car.jpg"
+              alt="Sample inventory vehicle used by DriveQuest"
+              width="800"
+              height="500"
+            />
+          </div>
+          <div class="feature-copy">
+            <p class="eyebrow">Open source · FastAPI · LangChain · Docker</p>
+            <h2>DriveQuest</h2>
+            <p>
+              A conversational car advisor with structured scoring, EV tradeoffs, and dealer
+              inventory ingest — practice building user-facing automotive software where
+              recommendations need clear logic, testable rules, and a path to production.
+            </p>
+            <ul class="plain-list">
+              <li>Multi-signal scoring and intake: messy preferences → explainable outputs</li>
+              <li>FastAPI, Docker, scrapers, and a multi-tenant embed teams can operate</li>
+              <li>Same muscles as mobility products: data quality, APIs, and post-launch iteration</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender"
+                >View repository</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/arthursetiawan/car_recommender/tree/main/docs"
+                >Architecture notes</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <div class="project-rail">
+          <article class="rail-item">
+            <h3>Pricing systems · PACCAR Parts</h3>
+            <p>
+              Elasticity modeling deployed through Salesforce APIs for discount guidance,
+              then maintained as part of ongoing monetization support on a large parts
+              portfolio.
+            </p>
+            <p class="meta">Python · regression · Salesforce · production APIs</p>
+          </article>
+          <article class="rail-item">
+            <h3>Stocking &amp; ETA · PACCAR Parts</h3>
+            <p>
+              Time-series forecasting for thousands of daily supplier orders and warehouse
+              ETAs — shipped with CI/CD and UAT, then monitored as volume and conditions
+              shift. Operational prediction at scale, with real cost when the model drifts.
+            </p>
+            <p class="meta">scikit-learn · CI/CD · UAT · logistics forecasting</p>
+          </article>
+          <article class="rail-item">
+            <h3>InsightsHub · dealer analytics</h3>
+            <p>
+              Geospatial truck-fault signals for conquesting and parts leads — spatial
+              data turned into decisions dealers act on, with Salesforce dashboards still
+              live for hundreds of locations after launch.
+            </p>
+            <p class="meta">Geospatial · Salesforce · fleet-adjacent signals</p>
+          </article>
+          <article class="rail-item">
+            <h3>Market intelligence · CDW-G</h3>
+            <p>
+              Azure-hosted research pipeline from scraping through warehousing and NER
+              into Power BI — built as a durable system sales teams could keep running.
+            </p>
+            <p class="meta">Azure · NLP · Power BI · operable pipelines</p>
+          </article>
+          <article class="rail-item">
+            <h3>Permitting automation · MasTec</h3>
+            <p>
+              Automation into Primavera P6 that returned substantial scheduling capacity,
+              with ArcGIS-backed Power BI reporting for clients.
+            </p>
+            <p class="meta">RPA · ArcGIS · Power BI</p>
+          </article>
+          <article class="rail-item">
+            <h3>Seattle cycling forecast</h3>
+            <p>
+              Academic time-series project on Fremont Bridge ridership using SDOT
+              counter data — cleaning, exploration, and forecasting in Python.
+            </p>
+            <p class="meta">pandas · matplotlib · forecasting</p>
+            <a class="text-link" href="https://github.com/arthursetiawan/DATA_5100_Project"
+              >View repository</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

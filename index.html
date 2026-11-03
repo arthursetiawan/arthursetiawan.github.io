@@ -26,15 +26,15 @@
   </head>
   <body>
     <header class="topbar">
-      <a class="wordmark" href="#top">Arthur Setiawan</a>
-      <nav class="topnav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#focus">Focus</a>
-        <a href="#work">Work</a>
-        <a href="#stack">Stack</a>
-        <a href="#experience">Experience</a>
-        <a class="nav-resume" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
-      </nav>
+      <div class="topbar-inner">
+        <a class="wordmark" href="index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="work.html">Work</a>
+          <a href="about.html">About</a>
+          <a class="nav-resume" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
@@ -56,33 +56,10 @@
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
-            <a class="btn btn-ghost" href="mailto:rthrsetiawan@gmail.com">Get in touch</a>
-            <a class="btn btn-ghost" href="#work">Selected work</a>
+            <a class="btn btn-ghost" href="about.html#contact">Get in touch</a>
+            <a class="btn btn-ghost" href="work.html">Selected work</a>
           </div>
         </div>
-      </section>
-
-      <section id="about" class="section about-section">
-        <div class="section-head">
-          <h2>About me</h2>
-          <p>What I aspire to pursue in autonomous mobility.</p>
-        </div>
-        <p class="about-pull">
-          Production ML for self-driving that respects people who love to drive.
-        </p>
-        <p>
-          I'm an analog driver at heart — I love being behind the wheel — and I want to
-          help build the best experience for automotive self-driving: safer, more
-          trustworthy, not anti-car. The rigorous validation, monitoring, and ownership
-          after launch that I practice at PACCAR Parts is the bar I want to bring to
-          autonomous mobility teams.
-        </p>
-        <p>
-          I'm seeking data science, ML engineer, MLOps, ML DevOps, and data engineer roles
-          on teams building human-centered autonomous systems. Waymo is the kind of mission
-          and engineering culture I hope to join — aspirational, not where I work today —
-          and that's the work I want to do next.
-        </p>
       </section>
 
       <section id="focus" class="section roles-section">
@@ -158,210 +135,6 @@
             <dd>supplier orders in stocking models</dd>
           </div>
         </dl>
-      </section>
-
-      <section id="work" class="section work-section">
-        <div class="section-head">
-          <h2>Selected work</h2>
-          <p>
-            Automotive production ML plus open-source product work — data, deployment, and
-            the operators and drivers who depend on the output.
-          </p>
-        </div>
-
-        <article class="feature">
-          <div class="feature-media">
-            <img
-              src="assets/drivequest-radar.svg"
-              alt="DriveQuest hexagonal radar comparing car scores"
-              width="640"
-              height="420"
-            />
-            <img
-              class="feature-inset"
-              src="assets/drivequest-car.jpg"
-              alt="Sample inventory vehicle used by DriveQuest"
-              width="800"
-              height="500"
-            />
-          </div>
-          <div class="feature-copy">
-            <p class="eyebrow">Open source · FastAPI · LangChain · Docker</p>
-            <h3>DriveQuest</h3>
-            <p>
-              A conversational car advisor with structured scoring, EV tradeoffs, and dealer
-              inventory ingest — practice building user-facing automotive software where
-              recommendations need clear logic, testable rules, and a path to production.
-            </p>
-            <ul class="plain-list">
-              <li>Multi-signal scoring and intake: messy preferences → explainable outputs</li>
-              <li>FastAPI, Docker, scrapers, and a multi-tenant embed teams can operate</li>
-              <li>Same muscles as mobility products: data quality, APIs, and post-launch iteration</li>
-            </ul>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="https://github.com/arthursetiawan/car_recommender"
-                >View repository</a
-              >
-              <a
-                class="btn btn-ghost"
-                href="https://github.com/arthursetiawan/car_recommender/tree/main/docs"
-                >Architecture notes</a
-              >
-            </div>
-          </div>
-        </article>
-
-        <div class="project-rail">
-          <article class="rail-item">
-            <h3>Pricing systems · PACCAR Parts</h3>
-            <p>
-              Elasticity modeling deployed through Salesforce APIs for discount guidance,
-              then maintained as part of ongoing monetization support on a large parts
-              portfolio.
-            </p>
-            <p class="meta">Python · regression · Salesforce · production APIs</p>
-          </article>
-          <article class="rail-item">
-            <h3>Stocking &amp; ETA · PACCAR Parts</h3>
-            <p>
-              Time-series forecasting for thousands of daily supplier orders and warehouse
-              ETAs — shipped with CI/CD and UAT, then monitored as volume and conditions
-              shift. Operational prediction at scale, with real cost when the model drifts.
-            </p>
-            <p class="meta">scikit-learn · CI/CD · UAT · logistics forecasting</p>
-          </article>
-          <article class="rail-item">
-            <h3>InsightsHub · dealer analytics</h3>
-            <p>
-              Geospatial truck-fault signals for conquesting and parts leads — spatial
-              data turned into decisions dealers act on, with Salesforce dashboards still
-              live for hundreds of locations after launch.
-            </p>
-            <p class="meta">Geospatial · Salesforce · fleet-adjacent signals</p>
-          </article>
-          <article class="rail-item">
-            <h3>Market intelligence · CDW-G</h3>
-            <p>
-              Azure-hosted research pipeline from scraping through warehousing and NER
-              into Power BI — built as a durable system sales teams could keep running.
-            </p>
-            <p class="meta">Azure · NLP · Power BI · operable pipelines</p>
-          </article>
-          <article class="rail-item">
-            <h3>Permitting automation · MasTec</h3>
-            <p>
-              Automation into Primavera P6 that returned substantial scheduling capacity,
-              with ArcGIS-backed Power BI reporting for clients.
-            </p>
-            <p class="meta">RPA · ArcGIS · Power BI</p>
-          </article>
-          <article class="rail-item">
-            <h3>Seattle cycling forecast</h3>
-            <p>
-              Academic time-series project on Fremont Bridge ridership using SDOT
-              counter data — cleaning, exploration, and forecasting in Python.
-            </p>
-            <p class="meta">pandas · matplotlib · forecasting</p>
-            <a class="text-link" href="https://github.com/arthursetiawan/DATA_5100_Project"
-              >View repository</a
-            >
-          </article>
-        </div>
-      </section>
-
-      <section id="stack" class="section stack-section">
-        <div class="section-head">
-          <h2>Tools I use often</h2>
-          <p>From analysis through platforms, services, and business activation.</p>
-        </div>
-        <div class="stack-grid">
-          <div>
-            <h3>Languages</h3>
-            <p>Python, SQL, R, DAX, Power Query M, Java</p>
-          </div>
-          <div>
-            <h3>ML / AI</h3>
-            <p>scikit-learn, TensorFlow/Keras, Hugging Face, NLP, LangChain, forecasting, validation &amp; monitoring in production</p>
-          </div>
-          <div>
-            <h3>Data platforms</h3>
-            <p>Snowflake, dbt, Spark, Hadoop, Postgres, pandas, Supabase</p>
-          </div>
-          <div>
-            <h3>Deploy &amp; maintain</h3>
-            <p>Git, CI/CD, Docker, Terraform, Azure, AWS, FastAPI, GitHub Actions, UAT</p>
-          </div>
-          <div>
-            <h3>Business systems</h3>
-            <p>Salesforce, Power BI, Tableau, Looker, REST APIs</p>
-          </div>
-          <div>
-            <h3>Domain</h3>
-            <p>Automotive &amp; heavy-duty parts, dealers, logistics · human-centered AV &amp; safe mobility</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="section experience-section">
-        <div class="section-head">
-          <h2>Experience</h2>
-          <p>MS Data Science, Seattle University (3.94 GPA) · BA Mathematics, University of Washington.</p>
-        </div>
-        <ol class="timeline">
-          <li>
-            <div class="when">Aug 2024 — Present</div>
-            <div>
-              <h3>Data Scientist · PACCAR Parts · Renton, WA</h3>
-              <p>
-                Own production pricing, stocking, ETA, InsightsHub, and dealer Salesforce
-                analytics through deployment and ongoing maintenance — in a domain where
-                bad predictions and downtime have immediate business cost. Converted from
-                internship after strong performance reviews and a full-time offer from
-                leadership.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div class="when">Jan — Jun 2024</div>
-            <div>
-              <h3>Data Science Intern · CDW-G · Seattle</h3>
-              <p>
-                Built cloud market-research automation for federal sales — scraping,
-                warehousing, NER, and Power BI delivery.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div class="when">Dec 2019 — Sep 2022</div>
-            <div>
-              <h3>Data Analyst · MasTec · Seattle</h3>
-              <p>
-                Permitting automation and geospatial client reporting, including RPA into
-                Primavera P6 and ArcGIS-backed dashboards.
-              </p>
-            </div>
-          </li>
-        </ol>
-        <p class="langs">
-          Native English and Bahasa Indonesia · Conversational Mandarin
-        </p>
-      </section>
-
-      <section id="contact" class="section contact-section">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>
-            Open to data science, ML engineer, MLOps, ML DevOps, and data engineering
-            roles on teams building human-centered autonomous mobility — where pipelines,
-            models, and ownership after launch matter as much as the roadmap.
-          </p>
-        </div>
-        <div class="contact-row">
-          <a href="mailto:rthrsetiawan@gmail.com">rthrsetiawan@gmail.com</a>
-          <a href="https://www.linkedin.com/in/arthursetiawan/" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/arthursetiawan" rel="noopener">GitHub</a>
-          <a href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
-        </div>
       </section>
     </main>
 
