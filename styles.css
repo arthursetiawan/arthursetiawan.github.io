@@ -344,6 +344,92 @@ body {
   letter-spacing: -0.03em;
 }
 
+.work-block-lede {
+  margin: -0.85rem 0 1.35rem;
+  max-width: 42rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.project-rail--showcases {
+  margin-top: 0;
+}
+
+.showcase-card-head {
+  position: relative;
+  margin: 1.15rem 1.25rem 0;
+  min-height: 5.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+.showcase-card-head--pricing {
+  background: linear-gradient(135deg, #0d3d2e 0%, #1a6b5c 48%, #c9e8e0 100%);
+}
+
+.showcase-card-head--genai {
+  background: linear-gradient(135deg, #1a2430 0%, #3d4f6a 52%, #d4dbe8 100%);
+}
+
+.showcase-card-head--yournextcar {
+  background: linear-gradient(135deg, #2a1f12 0%, #8b5a2b 50%, #f0e4d4 100%);
+}
+
+.status-badge {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 24, 32, 0.12);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.85rem 0 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(13, 107, 97, 0.1);
+  border: 1px solid rgba(13, 107, 97, 0.18);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--teal-deep);
+  letter-spacing: 0.02em;
+}
+
+.btn--disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.88;
+  transform: none !important;
+}
+
+.section .btn-primary.btn--disabled,
+.btn-primary.btn--disabled {
+  background: rgba(16, 24, 32, 0.1);
+  color: var(--ink-soft);
+  border: 1px solid rgba(16, 24, 32, 0.14);
+}
+
+.projects-more-sep {
+  margin: 0 0.5rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
 .project-rail--personal {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 0;
@@ -800,7 +886,8 @@ body {
     object-fit: cover;
   }
 
-  .project-rail--personal {
+  .project-rail--personal,
+  .project-rail--showcases {
     grid-template-columns: 1fr;
   }
 
