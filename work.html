@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Selected work — Arthur Setiawan</title>
+    <title>Work — Arthur Setiawan</title>
     <meta
       name="description"
-      content="Production automotive ML at PACCAR Parts, DriveQuest open-source car advisor, and selected data science projects."
+      content="Personal marketplace and automotive projects plus professional ML systems at PACCAR Parts, CDW-G, MasTec, and academic work."
     />
-    <meta property="og:title" content="Selected work — Arthur Setiawan" />
+    <meta property="og:title" content="Work — Arthur Setiawan" />
     <meta
       property="og:description"
-      content="DriveQuest, PACCAR pricing and forecasting, dealer analytics, and more."
+      content="Tawarkan, MotorMarket, DriveQuest, and production pricing, ETA, stocking, and dealer analytics."
     />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#ecf2f7" />
@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=preview-short" />
+    <link rel="stylesheet" href="styles.css?v=20261110" />
   </head>
   <body>
     <header class="topbar">
@@ -32,7 +32,7 @@
           <a href="index.html">Home</a>
           <a href="work.html" aria-current="page">Work</a>
           <a href="about.html">About</a>
-          <a class="nav-resume" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume</a>
+          <a class="nav-resume" href="resume/index.html">Resume</a>
         </nav>
       </div>
     </header>
@@ -40,10 +40,10 @@
     <main>
       <section class="section work-section">
         <div class="section-head">
-          <h1>Selected work</h1>
+          <h1>Work</h1>
           <p>
-            Automotive production ML plus open-source product work — data, deployment, and
-            the operators and drivers who depend on the output.
+            Personal product builds first, then production ML systems — data, deployment, and the
+            operators and drivers who depend on the output.
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="resume/2026_Arthur_Setiawan_Resume.pdf">Resume (PDF)</a>
@@ -60,7 +60,7 @@
             <article class="rail-item rail-item--card">
               <a
                 class="project-card-preview"
-                href="https://arthursetiawan.github.io/demos/tawarkan/"
+                href="https://arthursetiawan.github.io/tawarkan/"
                 rel="noopener"
               >
                 <img
@@ -73,12 +73,10 @@
                 <span class="visually-hidden">Open Tawarkan live demo</span>
               </a>
               <div class="rail-item--card-body">
-                <p class="eyebrow">Next.js · TypeScript · Tailwind</p>
                 <h3>Tawarkan</h3>
                 <p>
-                  Marketplace <em>tawar-menawar</em> for phones and gadgets in Indonesia — sellers
-                  list an ask price, buyers accept or counter until <strong>Sepakat</strong> or
-                  walk-away.
+                  Interactive marketplace bargaining and bidding engine exploring pricing thresholds
+                  and transaction elasticity.
                 </p>
                 <div class="cta-row cta-row--card">
                   <a
@@ -89,7 +87,7 @@
                   >
                   <a
                     class="btn btn-ghost"
-                    href="https://arthursetiawan.github.io/demos/tawarkan/"
+                    href="https://arthursetiawan.github.io/tawarkan/"
                     rel="noopener"
                     >Live demo</a
                   >
@@ -113,11 +111,9 @@
                 <span class="visually-hidden">Open MotorMarket live demo</span>
               </a>
               <div class="rail-item--card-body">
-                <p class="eyebrow">Django · Channels · sklearn · Docker</p>
                 <h3>MotorMarket</h3>
                 <p>
-                  Online bidding for automotive and motorcycles — server-rendered listings, realtime
-                  bids, REST API, and a tabular ML pipeline for sold-price estimates (NegoMotor).
+                  Automotive enthusiast marketplace and multi-factor auction and bidding platform.
                 </p>
                 <div class="cta-row cta-row--card">
                   <a
@@ -163,11 +159,10 @@
                 <span class="visually-hidden">Open DriveQuest live demo</span>
               </a>
               <div class="rail-item--card-body">
-                <p class="eyebrow">FastAPI · LangChain · Docker</p>
                 <h3>DriveQuest</h3>
                 <p>
-                  LangChain-powered car advisor — chat or tap chips to narrow budget and priorities,
-                  then compare contenders on a hexagonal radar across value, reliability, and safety.
+                  Multi-attribute automotive recommendation engine matching drivers to vehicles based
+                  on operational, lifestyle, and performance criteria.
                 </p>
                 <div class="cta-row cta-row--card">
                   <a
@@ -186,68 +181,91 @@
               </div>
             </article>
           </div>
+        </div>
 
-          <div class="project-rail project-rail--tight">
+        <div class="work-block" id="professional">
+          <h2 class="work-block-title">Professional systems</h2>
+
+          <div class="project-rail">
             <article class="rail-item">
-              <h3>Seattle cycling forecast</h3>
+              <h3>Elasticity pricing &amp; CSR guidance · PACCAR Parts</h3>
               <p>
-                Academic time-series project on Fremont Bridge ridership using SDOT
-                counter data — cleaning, exploration, and forecasting in Python.
+                Developing a log-log regression elasticity pricing model impacting $600 million in
+                annual revenue, delivering discount recommendations via API integration with Salesforce,
+                directly supporting monetization and sales growth for customer service and sales teams.
+              </p>
+              <p class="meta">Python · regression · Salesforce APIs · production pricing</p>
+            </article>
+            <article class="rail-item">
+              <h3>GenAI document extraction · PACCAR Parts</h3>
+              <p>
+                GenAI-assisted extraction from unstructured supplier and order documents into
+                structured fields for downstream models — validation gates, human review, and
+                production guardrails before features reach stocking and forecasting pipelines.
+              </p>
+              <p class="meta">NLP · GenAI · document pipelines · production validation</p>
+            </article>
+            <article class="rail-item">
+              <h3>Lead-time &amp; ETA forecasting · PACCAR Parts</h3>
+              <p>
+                Reduced warehouse lead-time error by 91% for 97% of US shipments with
+                RandomForestRegressor, improving delivery ETAs that dealers and planners rely on when
+                volume and conditions shift.
+              </p>
+              <p class="meta">scikit-learn · RandomForestRegressor · logistics forecasting</p>
+            </article>
+            <article class="rail-item">
+              <h3>Stocking at scale · PACCAR Parts</h3>
+              <p>
+                Managed predictive part stocking suggestions processing approximately 6,000 supplier
+                orders each day, following team CI/CD best practices — code-quality peer reviews, UAT,
+                and production-ready deployments on AWS (ECS, Lambda).
+              </p>
+              <p class="meta">CI/CD · ECS · Lambda · UAT · high-volume forecasting</p>
+            </article>
+            <article class="rail-item">
+              <h3>InsightsHub · dealer analytics · PACCAR Parts</h3>
+              <p>
+                Collaborated with team members to create InsightsHub, a one-stop-shop SaaS for dealers,
+                leveraging geospatial data on nearby truck faults to maximize conquesting new customers,
+                driving parts lead generation, and truck uptime. Designed dealer-facing Salesforce
+                dashboards for 850+ locations with real-time sales, incentives, and KPI views — cutting
+                refresh cycles from about two days to about thirty minutes.
+              </p>
+              <p class="meta">Geospatial · Salesforce · dealer SaaS · fleet-adjacent signals</p>
+            </article>
+            <article class="rail-item">
+              <h3>Market intelligence · CDW-G</h3>
+              <p>
+                Deployed a scalable automated market research tool with an Azure cloud-hosted data flow
+                for web scraping, cleaning, and warehousing, supporting Federal sales targets like U.S.
+                Space Force and U.S. Army. Aggregated multi-source market intelligence and integrated
+                NER into a Power BI dashboard to deliver sales leads and industry insights, streamlining
+                market research and saving each sales person four hours daily in research.
+              </p>
+              <p class="meta">Azure · NLP · NER · Power BI · operable pipelines</p>
+            </article>
+            <article class="rail-item">
+              <h3>Permitting automation · MasTec</h3>
+              <p>
+                Led DevOps team to create automated data-entry process for construction scheduling
+                permitting data in Primavera P6 using Automation Anywhere, freeing scheduling capacity
+                equivalent to five full-time roles. Created Power BI dashboards integrating ArcGIS data
+                for permit sequences, fiber placement, and project statuses with real-time client-facing
+                updates.
+              </p>
+              <p class="meta">RPA · ArcGIS · Power BI · Primavera P6</p>
+            </article>
+            <article class="rail-item">
+              <h3>Seattle cycling forecast · academic</h3>
+              <p>
+                Time-series project on Fremont Bridge ridership using SDOT counter data — cleaning,
+                exploration, and forecasting in Python for DATA_5100 at Seattle University.
               </p>
               <p class="meta">DATA_5100 · pandas · matplotlib · forecasting</p>
               <a class="text-link" href="https://github.com/arthursetiawan/DATA_5100_Project"
                 >View repository</a
               >
-            </article>
-          </div>
-        </div>
-
-        <div class="work-block">
-          <h2 class="work-block-title">Professional experience</h2>
-
-          <div class="project-rail">
-            <article class="rail-item">
-              <h3>Pricing systems · PACCAR Parts</h3>
-              <p>
-                Elasticity modeling deployed through Salesforce APIs for discount guidance,
-                then maintained as part of ongoing monetization support on a large parts
-                portfolio.
-              </p>
-              <p class="meta">Python · regression · Salesforce · production APIs</p>
-            </article>
-            <article class="rail-item">
-              <h3>Stocking &amp; ETA · PACCAR Parts</h3>
-              <p>
-                Time-series forecasting for thousands of daily supplier orders and warehouse
-                ETAs — shipped with CI/CD and UAT, then monitored as volume and conditions
-                shift. Operational prediction at scale, with real cost when the model drifts.
-              </p>
-              <p class="meta">scikit-learn · CI/CD · UAT · logistics forecasting</p>
-            </article>
-            <article class="rail-item">
-              <h3>InsightsHub · dealer analytics</h3>
-              <p>
-                Geospatial truck-fault signals for conquesting and parts leads — spatial
-                data turned into decisions dealers act on, with Salesforce dashboards still
-                live for hundreds of locations after launch.
-              </p>
-              <p class="meta">Geospatial · Salesforce · fleet-adjacent signals</p>
-            </article>
-            <article class="rail-item">
-              <h3>Market intelligence · CDW-G</h3>
-              <p>
-                Azure-hosted research pipeline from scraping through warehousing and NER
-                into Power BI — built as a durable system sales teams could keep running.
-              </p>
-              <p class="meta">Azure · NLP · Power BI · operable pipelines</p>
-            </article>
-            <article class="rail-item">
-              <h3>Permitting automation · MasTec</h3>
-              <p>
-                Automation into Primavera P6 that returned substantial scheduling capacity,
-                with ArcGIS-backed Power BI reporting for clients.
-              </p>
-              <p class="meta">RPA · ArcGIS · Power BI</p>
             </article>
           </div>
         </div>
