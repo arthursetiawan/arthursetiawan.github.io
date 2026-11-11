@@ -364,9 +364,16 @@ body {
   display: block;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--line);
+  align-self: flex-start;
+  margin: 1.15rem 1.25rem 0;
+  margin-right: auto;
+  width: min(100%, 320px);
+  max-width: calc(100% - 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
   background: #0c141c;
   text-decoration: none;
+  box-shadow: 0 8px 24px rgba(8, 16, 24, 0.12);
 }
 
 .project-card-preview:focus-visible {
@@ -392,12 +399,12 @@ body {
 .project-card-preview-inset {
   position: absolute;
   right: 4%;
-  bottom: -10%;
-  width: min(38%, 148px);
+  bottom: -8%;
+  width: min(38%, 108px);
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 3px solid rgba(247, 250, 251, 0.95);
-  box-shadow: var(--shadow);
+  border: 2px solid rgba(247, 250, 251, 0.95);
+  box-shadow: 0 16px 40px rgba(8, 16, 24, 0.22);
   transition: transform 0.35s ease;
 }
 
@@ -729,6 +736,19 @@ body {
 }
 
 @media (max-width: 900px) {
+  .project-card-preview {
+    width: 100%;
+    max-width: calc(100% - 2.5rem);
+  }
+
+  .project-card-preview > img,
+  .project-card-preview-media > img:first-child {
+    max-height: 168px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
   .project-rail--personal {
     grid-template-columns: 1fr;
   }
@@ -762,8 +782,8 @@ body {
   .feature-inset,
   .project-card-preview-inset {
     right: 4%;
-    bottom: -8%;
-    width: min(38%, 170px);
+    bottom: -6%;
+    width: min(38%, 120px);
   }
 }
 
