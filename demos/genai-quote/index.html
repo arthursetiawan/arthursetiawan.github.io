@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GenAI Quote Extractor — Mock Demo · Arthur Setiawan</title>
+    <meta
+      name="description"
+      content="Mock GenAI unstructured quote extraction with fuzzy catalog matching. No live Gemini — synthetic demo in the browser."
+    />
+    <meta name="theme-color" content="#ecf2f7" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css?v=20261111d" />
+    <link rel="stylesheet" href="../mock-demo.css?v=20261111d" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="wordmark" href="../../index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="../../index.html">Home</a>
+          <a href="../../work.html#personal">Work</a>
+          <a href="../../about.html">About</a>
+          <a class="nav-resume" href="../../resume/index.html">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mock-banner" role="note">
+      <p>Mock demo — no live Gemini</p>
+    </div>
+
+    <section class="demo-intro">
+      <h1>GenAI unstructured quote extractor</h1>
+      <p class="lede">
+        Paste or edit a noisy supplier quote, then run a fake extraction pass. Results map to a static
+        parts catalog with rapidfuzz-style scores — animated in the browser for storytelling only.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="../../work.html#personal">← Personal projects</a>
+      </div>
+    </section>
+
+    <div class="demo-workspace">
+      <div class="demo-grid demo-grid--split">
+        <div class="demo-panel">
+          <h2>Messy quote (text)</h2>
+          <p class="panel-note">Preloaded OCR-style sample — edit freely.</p>
+          <label class="field field--full">
+            <span class="visually-hidden">Quote text</span>
+            <textarea id="quote-text" aria-label="Messy quote text"></textarea>
+          </label>
+          <div class="demo-actions">
+            <button type="button" class="btn btn-primary" id="btn-extract">Extract</button>
+          </div>
+        </div>
+
+        <div class="demo-panel">
+          <h2>Structured output</h2>
+          <p class="panel-note">Hardcoded extraction + fuzzy catalog reconciliation.</p>
+          <div id="extract-output">
+            <p class="placeholder">Click Extract to reveal line items and match scores.</p>
+          </div>
+          <pre class="code-preview" id="json-preview" aria-label="JSON preview"></pre>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle</p>
+    </footer>
+    <script src="demo.js?v=20261111d"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YourNextCar — Mock Discovery · Arthur Setiawan</title>
+    <meta
+      name="description"
+      content="Lightweight automotive discovery quiz: budget, body style, and EV interest mapped to sample vehicle matches. Static mock demo."
+    />
+    <meta name="theme-color" content="#ecf2f7" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css?v=20261111d" />
+    <link rel="stylesheet" href="../mock-demo.css?v=20261111d" />
+    <style>
+      .yournextcar-hero {
+        background: linear-gradient(135deg, #2a1f12 0%, #8b5a2b 45%, #f0e4d4 100%);
+        color: #fff;
+        padding: 1.25rem;
+        border-radius: 0.45rem;
+        margin-bottom: 1rem;
+      }
+      .yournextcar-hero h2 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+      }
+      .yournextcar-hero p {
+        margin: 0.35rem 0 0;
+        opacity: 0.92;
+        font-size: 0.92rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="wordmark" href="../../index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="../../index.html">Home</a>
+          <a href="../../work.html#personal">Work</a>
+          <a href="../../about.html">About</a>
+          <a class="nav-resume" href="../../resume/index.html">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mock-banner" role="note">
+      <p>Interactive mock — synthetic inventory</p>
+    </div>
+
+    <section class="demo-intro">
+      <h1>YourNextCar</h1>
+      <p class="lede">
+        A short discovery quiz for your next vehicle. Answers map to a static shortlist with match scores —
+        same automotive spirit as DriveQuest, tuned for everyday search and comparison UX.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="../../work.html#personal">← Personal projects</a>
+        <a
+          class="btn btn-ghost"
+          href="https://arthursetiawan.github.io/car_recommender/drivequest/"
+          rel="noopener"
+          >Compare: DriveQuest</a
+        >
+      </div>
+    </section>
+
+    <div class="demo-workspace">
+      <div class="demo-grid demo-grid--split">
+        <form id="quiz-form" class="demo-panel">
+          <div class="yournextcar-hero">
+            <h2>Find your next match</h2>
+            <p>Budget, body style, and electrification preference.</p>
+          </div>
+
+          <fieldset class="field field--full" style="border:0;padding:0;margin:0 0 1rem">
+            <legend class="field"><span>Budget band</span></legend>
+            <div class="quiz-options">
+              <label><input type="radio" name="budget" value="economy" checked /><span>Under $35k</span></label>
+              <label><input type="radio" name="budget" value="mid" /><span>$35k–$55k</span></label>
+              <label><input type="radio" name="budget" value="premium" /><span>$55k+</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field field--full" style="border:0;padding:0;margin:0 0 1rem">
+            <legend class="field"><span>Body style</span></legend>
+            <div class="quiz-options">
+              <label><input type="radio" name="body" value="sedan" checked /><span>Sedan</span></label>
+              <label><input type="radio" name="body" value="suv" /><span>SUV</span></label>
+              <label><input type="radio" name="body" value="any" /><span>No preference</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field field--full" style="border:0;padding:0;margin:0 0 1rem">
+            <legend class="field"><span>EV interest</span></legend>
+            <div class="quiz-options">
+              <label><input type="radio" name="ev_interest" value="yes" /><span>Prefer EV</span></label>
+              <label><input type="radio" name="ev_interest" value="maybe" checked /><span>Open to either</span></label>
+              <label><input type="radio" name="ev_interest" value="no" /><span>Gas/hybrid OK</span></label>
+            </div>
+          </fieldset>
+
+          <div class="demo-actions">
+            <button type="submit" class="btn btn-primary">Show matches</button>
+          </div>
+        </form>
+
+        <div class="demo-panel" aria-live="polite">
+          <h2>Top matches</h2>
+          <p class="panel-note">Two or three sample vehicles from static data.</p>
+          <div id="match-results" class="match-cards">
+            <p class="placeholder">Run the quiz to see ranked matches.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle</p>
+    </footer>
+    <script src="demo.js?v=20261111d"></script>
+  </body>
+</html>

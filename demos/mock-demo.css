@@ -1,0 +1,348 @@
+/* Shared layout for static portfolio mock demos (uses site styles.css for nav/buttons). */
+
+.mock-banner {
+  margin: 0 auto;
+  max-width: var(--max);
+  padding: 0.65rem 1.25rem 0;
+}
+
+.mock-banner p {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.demo-intro {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 0.5rem;
+}
+
+.demo-intro h1 {
+  margin: 0.35rem 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  letter-spacing: -0.03em;
+}
+
+.demo-intro .lede {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.demo-intro .cta-row {
+  margin-top: 1rem;
+}
+
+.demo-workspace {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+}
+
+.demo-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .demo-grid--split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: start;
+  }
+}
+
+.demo-panel {
+  padding: 1.15rem 1.2rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 40px rgba(8, 16, 24, 0.06);
+}
+
+.demo-panel h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.demo-panel .panel-note {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.field-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 560px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field span {
+  color: var(--ink-soft);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+.field textarea {
+  min-height: 11rem;
+  resize: vertical;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.field input[type="range"] {
+  padding: 0.25rem 0;
+}
+
+.form-error {
+  margin: 0.75rem 0 0;
+  color: #a11c2a;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.demo-actions {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.result-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 0.75rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metric .label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.metric .value {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.metric .value.accent {
+  color: var(--teal-deep);
+}
+
+.clamp-note {
+  margin: 0.85rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.35rem;
+  border-left: 3px solid var(--teal);
+  background: var(--teal-soft);
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.clamp-note.is-ceiling {
+  border-left-color: var(--amber);
+  background: var(--amber-soft);
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.json-table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: #fff;
+}
+
+.json-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.json-table th,
+.json-table td {
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.json-table th {
+  background: rgba(13, 107, 97, 0.06);
+  font-weight: 700;
+}
+
+.json-table tr.is-hidden {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.json-table tr.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.match-score {
+  display: inline-block;
+  min-width: 3.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+}
+
+.match-score--mid {
+  background: var(--amber-soft);
+  color: #7a4d14;
+}
+
+.match-score--low {
+  background: rgba(16, 24, 32, 0.08);
+  color: var(--ink-soft);
+}
+
+pre.code-preview {
+  margin: 1rem 0 0;
+  padding: 0.85rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--line);
+  background: #0d171f;
+  color: #d8e6f0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-x: auto;
+}
+
+/* YourNextCar matches */
+.match-cards {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.match-card {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: #fff;
+}
+
+.match-card h3 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.match-card .score-pill {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.match-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quiz-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+}
+
+.quiz-options input:checked + span,
+.quiz-options label:has(input:checked) {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+}
+
+.quiz-options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}

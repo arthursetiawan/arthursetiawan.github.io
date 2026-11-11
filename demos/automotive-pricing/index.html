@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automotive Dynamic Pricing — Mock Demo · Arthur Setiawan</title>
+    <meta
+      name="description"
+      content="Interactive mock of parts-style dynamic pricing: win probability, recommended price, and margin floor / tariff ceiling clamping. Synthetic data only."
+    />
+    <meta name="theme-color" content="#ecf2f7" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css?v=20261111d" />
+    <link rel="stylesheet" href="../mock-demo.css?v=20261111d" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="wordmark" href="../../index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="../../index.html">Home</a>
+          <a href="../../work.html#personal">Work</a>
+          <a href="../../about.html">About</a>
+          <a class="nav-resume" href="../../resume/index.html">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mock-banner" role="note">
+      <p>Interactive mock — synthetic data</p>
+    </div>
+
+    <section class="demo-intro">
+      <h1>Automotive dynamic pricing engine</h1>
+      <p class="lede">
+        Adjust a parts quote and run a client-side optimization pass. No API keys, no live models — the
+        math mirrors production guardrails (margin floor, tariff ceiling) for exploration only.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="../../work.html#personal">← Personal projects</a>
+      </div>
+    </section>
+
+    <div class="demo-workspace">
+      <div class="demo-grid demo-grid--split">
+        <form id="pricing-form" class="demo-panel" novalidate>
+          <h2>Quote inputs</h2>
+          <p class="panel-note">Tune category, costs, discount, tier, and import tariff.</p>
+          <div class="field-grid">
+            <label class="field">
+              <span>Part category</span>
+              <select id="part_category" name="part_category">
+                <option value="brake">Brake</option>
+                <option value="engine" selected>Engine</option>
+                <option value="electrical">Electrical</option>
+                <option value="filter">Filter</option>
+                <option value="suspension">Suspension</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Dealer tier</span>
+              <select id="dealer_tier" name="dealer_tier">
+                <option value="platinum">Platinum</option>
+                <option value="gold" selected>Gold</option>
+                <option value="silver">Silver</option>
+                <option value="bronze">Bronze</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Base cost ($)</span>
+              <input id="base_cost" type="number" min="0" step="0.01" value="400" required />
+            </label>
+            <label class="field">
+              <span>List price ($)</span>
+              <input id="list_price" type="number" min="0.01" step="0.01" value="520" required />
+            </label>
+            <label class="field">
+              <span>Discount <strong id="discount-label">10%</strong></span>
+              <input id="discount_pct" type="range" min="0" max="0.35" step="0.01" value="0.1" />
+            </label>
+            <label class="field">
+              <span>Tariff rate <strong id="tariff-label">5%</strong></span>
+              <input id="tariff_rate" type="range" min="0" max="0.3" step="0.01" value="0.05" />
+            </label>
+          </div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <div class="demo-actions">
+            <button type="submit" class="btn btn-primary">Optimize price</button>
+          </div>
+        </form>
+
+        <div class="demo-panel result-stack" aria-live="polite">
+          <h2>Optimization output</h2>
+          <p class="panel-note">Win probability, model recommendation, and clamped selling price.</p>
+          <div id="results">
+            <p class="placeholder">Submit the form to see synthetic scoring and clamping.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle</p>
+    </footer>
+    <script src="demo.js?v=20261111d"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title">
+  <title id="title">GenAI quote extractor mock preview</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2430"/>
+      <stop offset="52%" stop-color="#3d4f6a"/>
+      <stop offset="100%" stop-color="#d4dbe8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect x="40" y="56" width="260" height="248" rx="10" fill="rgba(255,255,255,0.9)"/>
+  <rect x="60" y="80" width="220" height="8" rx="3" fill="#c8d2dc"/>
+  <rect x="60" y="98" width="180" height="8" rx="3" fill="#c8d2dc"/>
+  <rect x="60" y="116" width="200" height="8" rx="3" fill="#c8d2dc"/>
+  <rect x="60" y="150" width="140" height="8" rx="3" fill="#c8d2dc" opacity="0.7"/>
+  <rect x="320" y="56" width="280" height="248" rx="10" fill="rgba(13,23,31,0.75)"/>
+  <text x="340" y="100" fill="#8ec9ff" font-family="ui-monospace,monospace" font-size="14">{ "line_items": [</text>
+  <text x="360" y="128" fill="#d8e6f0" font-family="ui-monospace,monospace" font-size="13">"sku": "BRK-4410",</text>
+  <text x="360" y="152" fill="#d8e6f0" font-family="ui-monospace,monospace" font-size="13">"fuzzy_score": 96</text>
+  <text x="340" y="200" fill="#8ec9ff" font-family="ui-monospace,monospace" font-size="14">] }</text>
+</svg>
