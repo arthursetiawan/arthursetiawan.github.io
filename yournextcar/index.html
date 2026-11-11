@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YourNextCar — Guided discovery (demo)</title>
+    <meta
+      name="description"
+      content="Static mock of YourNextCar / Dealer-Counter guided discovery: ZIP, car interest, sample inventory, fee-radar tips, and an OTD counter script."
+    />
+    <meta name="theme-color" content="#ecf2f7" />
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="wordmark" href="../index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="../index.html">Home</a>
+          <a href="../work.html">Work</a>
+          <a href="../about.html">About</a>
+          <a class="nav-resume" href="../resume/index.html">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="atmosphere" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Static mock · mirrors Streamlit guided flow</p>
+        <h1 class="brand">YourNextCar</h1>
+        <p class="lede">
+          Find the dealer. Lock the car. Counter with a clean Out-The-Door — Dealer-Counter fee radar
+          and anti-deflection scripts included.
+        </p>
+        <p class="mock-banner" role="status">
+          Demo data only. Listings, prices, and dealer names are hard-coded samples — not a live
+          search.
+        </p>
+      </header>
+
+      <nav class="steps" aria-label="Guided steps">
+        <button type="button" class="step is-active" data-step="0" aria-current="step">1. Where</button>
+        <button type="button" class="step" data-step="1">2. What</button>
+        <button type="button" class="step" data-step="2">3. Find</button>
+        <button type="button" class="step" data-step="3">4. Negotiate</button>
+      </nav>
+
+      <section class="panel" id="panel-0" data-panel="0">
+        <p class="step-label">Step 1 — Where</p>
+        <h2>Which dealer world are we shopping?</h2>
+        <p class="support">
+          ZIP or metro first. Name a store if you already have one — or shop any nearby franchise.
+        </p>
+        <form class="grid" id="form-where">
+          <label
+            >ZIP / metro
+            <input id="zip" name="zip" value="94107" required autocomplete="postal-code" />
+          </label>
+          <label
+            >State
+            <select id="state" name="state">
+              <option>CA</option>
+              <option>WA</option>
+              <option>TX</option>
+              <option>FL</option>
+              <option>VA</option>
+            </select>
+          </label>
+          <label class="span-2 check">
+            <input type="checkbox" id="anyFranchise" checked />
+            Any nearby franchise for this brand
+          </label>
+          <label class="span-2"
+            >Dealer name (optional)
+            <input id="dealer" name="dealer" placeholder="Toyota of Downtown" disabled />
+          </label>
+        </form>
+        <div class="actions">
+          <button type="button" class="primary" data-next="1">Continue to car interest →</button>
+        </div>
+      </section>
+
+      <section class="panel is-hidden" id="panel-1" data-panel="1" hidden>
+        <p class="step-label">Step 2 — What</p>
+        <h2>What are you trying to buy?</h2>
+        <p class="support">Year, make, model, trim. Optional OTD ceiling keeps the search honest.</p>
+        <form class="grid" id="form-what">
+          <label>Year <input id="year" type="number" value="2025" /></label>
+          <label>Make <input id="make" value="Toyota" /></label>
+          <label>Model <input id="model" value="Camry" /></label>
+          <label>Trim <input id="trim" value="SE" /></label>
+          <label
+            >Condition
+            <select id="condition">
+              <option>new</option>
+              <option>used</option>
+              <option>any</option>
+            </select>
+          </label>
+          <label
+            >Budget OTD ceiling
+            <input id="budget" type="number" value="38000" step="500" />
+          </label>
+          <label class="span-2"
+            >Must-haves
+            <input id="musts" value="No market adjustment, remote close" />
+          </label>
+        </form>
+        <div class="actions">
+          <button type="button" class="ghost" data-next="0">← Back</button>
+          <button type="button" class="primary" data-next="2">Show sample inventory →</button>
+        </div>
+      </section>
+
+      <section class="panel is-hidden" id="panel-2" data-panel="2" hidden>
+        <p class="step-label">Step 3 — Find</p>
+        <h2>Sample inventory near you</h2>
+        <p class="support">
+          Static demo listings (live Streamlit uses web search). Pick a target to continue.
+        </p>
+        <p class="mock-inline" role="note">Mock / demo inventory</p>
+        <p class="query" id="searchQuery"></p>
+        <div class="listings" id="listings"></div>
+        <div class="actions">
+          <button type="button" class="ghost" data-next="1">← Back to car</button>
+        </div>
+      </section>
+
+      <section class="panel is-hidden" id="panel-3" data-panel="3" hidden>
+        <p class="step-label">Step 4 — Negotiate</p>
+        <h2>Fee radar &amp; cold outreach counter</h2>
+        <p class="support" id="targetSummary">Pick a listing first.</p>
+        <div class="tips" id="tips" aria-label="Junk fee radar tips"></div>
+        <div class="script-block">
+          <div class="script-head">
+            <h3>Anti-deflection email</h3>
+            <button type="button" class="ghost small" id="copy-script">Copy</button>
+          </div>
+          <pre class="script" id="script"></pre>
+        </div>
+        <div class="script-block">
+          <div class="script-head">
+            <h3>Request OTD Buyer's Order</h3>
+            <button type="button" class="ghost small" id="copy-otd">Copy</button>
+          </div>
+          <pre class="script" id="otdDraft"></pre>
+        </div>
+        <p class="script-note">Illustrative numbers from mock listing math — not a live audit.</p>
+        <div class="actions">
+          <button type="button" class="ghost" data-next="2">← Back to Find</button>
+          <button type="button" class="primary" id="restart">Start over</button>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <p>
+          Self-contained mock on
+          <a href="../index.html">arthursetiawan.github.io</a>
+          · adapted from vehicle-negotiator-engine <code>web/static_mock</code>.
+          © <span id="footer-year">2026</span> Arthur Setiawan
+        </p>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

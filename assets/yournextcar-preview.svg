@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="YourNextCar discovery preview">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecf2f7"/>
+      <stop offset="55%" stop-color="#dde6ef"/>
+      <stop offset="100%" stop-color="#d5e0e9"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d6b61"/>
+      <stop offset="100%" stop-color="#c47a22"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1080" cy="120" r="220" fill="#c47a22" opacity="0.12"/>
+  <circle cx="160" cy="620" r="260" fill="#0d6b61" opacity="0.12"/>
+  <text x="96" y="168" font-family="Syne, Avenir Next, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#0d3d2e" letter-spacing="4">GUIDED DISCOVERY</text>
+  <text x="96" y="260" font-family="Syne, Avenir Next, Segoe UI, sans-serif" font-size="92" font-weight="800" fill="#0d3d2e">YourNextCar</text>
+  <text x="96" y="330" font-family="Figtree, Segoe UI, sans-serif" font-size="32" fill="#1a1a1a">ZIP ’ car interest ’ mock inventory ’ OTD counter</text>
+  <rect x="96" y="390" width="720" height="10" rx="5" fill="url(#accent)"/>
+  <g font-family="Figtree, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#084c45">
+    <text x="96" y="470">1 Where</text>
+    <text x="280" y="470">2 What</text>
+    <text x="450" y="470">3 Find</text>
+    <text x="620" y="470">4 Negotiate</text>
+  </g>
+  <rect x="96" y="520" width="520" height="96" rx="16" fill="#ffffff" stroke="rgba(16,24,32,0.14)"/>
+  <text x="128" y="568" font-family="Syne, Avenir Next, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#101820">2025 Toyota RAV4 XLE</text>
+  <text x="128" y="602" font-family="Figtree, Segoe UI, sans-serif" font-size="22" fill="#4a5d6c">Toyota of Seattle · mock demo listing</text>
+  <text x="480" y="580" font-family="Syne, Avenir Next, Segoe UI, sans-serif" font-size="30" font-weight="800" fill="#0d3d2e">$34,450</text>
+</svg>
