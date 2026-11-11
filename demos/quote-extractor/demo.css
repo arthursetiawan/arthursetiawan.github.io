@@ -207,6 +207,10 @@ label.demo-field > span {
   font-weight: 600;
 }
 
+.demo-stage[hidden] {
+  display: none !important;
+}
+
 .demo-spinner {
   width: 1.1rem;
   height: 1.1rem;
