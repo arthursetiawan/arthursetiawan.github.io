@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title">
+  <title id="title">YourNextCar mock preview</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1f12"/>
+      <stop offset="50%" stop-color="#8b5a2b"/>
+      <stop offset="100%" stop-color="#f0e4d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <ellipse cx="320" cy="250" rx="200" ry="28" fill="rgba(0,0,0,0.2)"/>
+  <path d="M180 230 Q220 160 320 150 Q420 160 460 230 L430 240 Q400 200 320 195 Q240 200 210 240 Z" fill="#f5f0ea"/>
+  <rect x="230" y="175" width="180" height="48" rx="8" fill="#87aecb" opacity="0.85"/>
+  <circle cx="230" cy="242" r="22" fill="#1a1a1a"/>
+  <circle cx="410" cy="242" r="22" fill="#1a1a1a"/>
+  <rect x="72" y="56" width="160" height="72" rx="10" fill="rgba(255,255,255,0.9)"/>
+  <text x="92" y="100" fill="#7a4d14" font-family="system-ui,sans-serif" font-size="22" font-weight="700">Match 94%</text>
+</svg>

@@ -373,6 +373,15 @@ a.showcase-card-head:hover {
   box-shadow: 0 10px 24px rgba(8, 16, 24, 0.12);
 }
 
+.showcase-card-head img {
+  display: block;
+  width: 100%;
+  min-height: 5.25rem;
+  max-height: 120px;
+  object-fit: cover;
+  aspect-ratio: 8 / 3;
+}
+
 .showcase-card-head--pricing {
   background: linear-gradient(135deg, #0d3d2e 0%, #1a6b5c 48%, #c9e8e0 100%);
 }

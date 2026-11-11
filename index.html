@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261111c" />
+    <link rel="stylesheet" href="styles.css?v=20261111d" />
   </head>
   <body>
     <header class="topbar">
@@ -61,7 +61,10 @@
       <section id="projects" class="section projects-section">
         <div class="section-head">
           <h2>Personal projects</h2>
-          <p>Open-source marketplace and automotive builds — repositories and live demos on GitHub Pages.</p>
+          <p>
+            Six personal and showcase builds — marketplaces, recommendation, and open MLOps demos with
+            repositories and live experiences where published.
+          </p>
         </div>
         <div class="project-rail project-rail--personal">
           <article class="rail-item rail-item--card">
@@ -173,17 +176,118 @@
               </div>
             </div>
           </article>
+
+          <article class="rail-item rail-item--card rail-item--showcase">
+            <a
+              class="showcase-card-head showcase-card-head--pricing"
+              href="demos/automotive-pricing/"
+              aria-label="Open Automotive Dynamic Pricing Engine live demo"
+            >
+              <img
+                src="assets/automotive-pricing-preview.svg"
+                alt="Mock pricing UI with win probability and optimized price"
+                width="640"
+                height="360"
+                loading="lazy"
+              />
+            </a>
+            <div class="rail-item--card-body">
+              <h3>Automotive Dynamic Pricing Engine</h3>
+              <p>
+                Synthetic MLOps lab for parts-style dynamic pricing: FastAPI serving, clamped elasticity
+                guardrails, Dockerized CI, and reproducible training data on open samples.
+              </p>
+              <p class="tag-row" aria-label="Technologies">
+                <span class="tag">MLOps</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Docker</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Python</span>
+              </p>
+              <div class="cta-row cta-row--card">
+                <span class="btn btn-primary btn--disabled" aria-disabled="true">Repository · soon</span>
+                <a class="btn btn-ghost" href="demos/automotive-pricing/">Live demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="rail-item rail-item--card rail-item--showcase">
+            <a
+              class="showcase-card-head showcase-card-head--genai"
+              href="demos/genai-quote/"
+              aria-label="Open GenAI Unstructured Quote Extractor live demo"
+            >
+              <img
+                src="assets/genai-quote-preview.svg"
+                alt="Mock quote document and structured JSON extraction preview"
+                width="640"
+                height="360"
+                loading="lazy"
+              />
+            </a>
+            <div class="rail-item--card-body">
+              <h3>GenAI Unstructured Quote Extractor</h3>
+              <p>
+                Applied GenAI pipeline for messy automotive and freight quotes with rapidfuzz
+                reconciliation and human-review flags under 0.40 — offline mock on sample invoices.
+              </p>
+              <p class="tag-row" aria-label="Technologies">
+                <span class="tag">GenAI</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">rapidfuzz</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Python</span>
+              </p>
+              <div class="cta-row cta-row--card">
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/arthursetiawan/genai-unstructured-quote-extractor"
+                  rel="noopener"
+                  >Repository</a
+                >
+                <a class="btn btn-ghost" href="demos/genai-quote/">Live demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="rail-item rail-item--card rail-item--showcase">
+            <a
+              class="showcase-card-head showcase-card-head--yournextcar"
+              href="demos/yournextcar/"
+              aria-label="Open YourNextCar live demo"
+            >
+              <img
+                src="assets/yournextcar-preview.svg"
+                alt="YourNextCar discovery quiz with vehicle match score"
+                width="640"
+                height="360"
+                loading="lazy"
+              />
+            </a>
+            <div class="rail-item--card-body">
+              <h3>YourNextCar</h3>
+              <p>
+                Personal automotive discovery and next-car companion for everyday search, comparison,
+                and shortlist UX.
+              </p>
+              <p class="tag-row" aria-label="Technologies">
+                <span class="tag">Recommendation</span>
+                <span class="tag">Automotive UX</span>
+                <span class="tag">Python</span>
+              </p>
+              <div class="cta-row cta-row--card">
+                <span class="btn btn-primary btn--disabled" aria-disabled="true">Repository · soon</span>
+                <a class="btn btn-ghost" href="demos/yournextcar/">Live demo</a>
+              </div>
+            </div>
+          </article>
         </div>
         <p class="projects-more">
-          <a class="text-link" href="work.html#personal">Full project write-ups on Work →</a>
-          <span class="projects-more-sep" aria-hidden="true">·</span>
-          <a class="text-link" href="work.html#showcases">Open MLOps &amp; AI showcases →</a>
-          <span class="projects-more-sep" aria-hidden="true">·</span>
-          <a class="text-link" href="demos/automotive-dynamic-pricing-engine/"
-            >Pricing engine demo →</a
+          <a class="text-link" href="work.html#personal"
+            >6 personal &amp; showcase projects — full write-ups on Work →</a
           >
           <span class="projects-more-sep" aria-hidden="true">·</span>
-          <a class="text-link" href="demos/quote-extractor/">GenAI quote extractor mock →</a>
+          <a class="text-link" href="demos/genai-quote/">GenAI quote extractor mock →</a>
         </p>
       </section>
 
