@@ -402,6 +402,10 @@ async function init() {
     results.hidden = true;
     loadSampleIntoEditor();
   });
+
+  if (new URLSearchParams(window.location.search).has("run")) {
+    await runDemo();
+  }
 }
 
 init().catch((err) => {
