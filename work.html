@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261111b" />
+    <link rel="stylesheet" href="styles.css?v=20261111c" />
   </head>
   <body>
     <header class="topbar">
@@ -222,18 +222,19 @@
             </article>
 
             <article class="rail-item rail-item--card rail-item--showcase">
-              <div
+              <a
                 class="showcase-card-head showcase-card-head--genai"
-                role="img"
-                aria-label="Placeholder visual for GenAI quote extractor showcase"
+                href="demos/quote-extractor/"
+                aria-label="Open GenAI quote extractor mock demo"
               >
-                <span class="status-badge">In development</span>
-              </div>
+                <span class="status-badge">Live mock</span>
+              </a>
               <div class="rail-item--card-body">
                 <h3>GenAI unstructured quote extractor</h3>
                 <p>
-                  Applied GenAI pipeline for messy quote documents with rapidfuzz reconciliation and
-                  a Streamlit demo — shows document-to-structured-data flows on synthetic open inputs.
+                  Applied GenAI pipeline for messy automotive and freight quotes: structured line
+                  items, rapidfuzz reconciliation, and human-review flags when confidence falls below
+                  0.40 — try the offline mock on sample invoices.
                 </p>
                 <p class="tag-row" aria-label="Technologies">
                   <span class="tag">GenAI</span>
@@ -243,9 +244,13 @@
                   <span class="tag">Python</span>
                 </p>
                 <div class="cta-row cta-row--card">
-                  <span class="btn btn-primary btn--disabled" aria-disabled="true"
-                    >Repository · coming soon</span
+                  <a
+                    class="btn btn-primary"
+                    href="https://github.com/arthursetiawan/genai-unstructured-quote-extractor"
+                    rel="noopener"
+                    >Repository</a
                   >
+                  <a class="btn btn-ghost" href="demos/quote-extractor/">Live mock demo</a>
                 </div>
               </div>
             </article>
