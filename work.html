@@ -11,7 +11,7 @@
     <meta property="og:title" content="Work — Arthur Setiawan" />
     <meta
       property="og:description"
-      content="Tawarkan, MotorMarket, DriveQuest, open MLOps showcases, and professional data science experience."
+      content="Tawarkan, MotorMarket, DriveQuest, YourNextCar, MLOps demos, and professional data science experience."
     />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#ecf2f7" />
@@ -54,7 +54,11 @@
         </div>
 
         <div class="work-block" id="personal">
-          <h2 class="work-block-title">Personal projects</h2>
+          <h2 class="work-block-title" id="showcases">Personal projects</h2>
+          <p class="work-block-lede">
+            Open-source marketplace and automotive builds, plus public MLOps and applied AI demos — no
+            proprietary data, customer metrics, or employer IP.
+          </p>
 
           <div class="project-rail project-rail--personal">
             <article class="rail-item rail-item--card">
@@ -180,27 +184,17 @@
                 </div>
               </div>
             </article>
-          </div>
-        </div>
 
-        <div class="work-block" id="showcases">
-          <h2 class="work-block-title">Open MLOps &amp; applied AI showcases</h2>
-          <p class="work-block-lede">
-            Public, synthetic demos of production-style ML patterns — no proprietary data, customer
-            metrics, or employer IP.
-          </p>
-
-          <div class="project-rail project-rail--personal project-rail--showcases">
             <article class="rail-item rail-item--card rail-item--showcase">
               <a
                 class="showcase-card-head showcase-card-head--pricing"
                 href="demos/automotive-dynamic-pricing-engine/"
-                aria-label="Open automotive dynamic pricing engine live demo"
+                aria-label="Open Automotive Dynamic Pricing Engine live demo"
               >
-                <span class="status-badge">Live demo</span>
+                <span class="status-badge">In development</span>
               </a>
               <div class="rail-item--card-body">
-                <h3>Automotive dynamic pricing engine</h3>
+                <h3>Automotive Dynamic Pricing Engine</h3>
                 <p>
                   Synthetic MLOps lab for parts-style dynamic pricing: FastAPI serving, clamped
                   elasticity guardrails, Dockerized CI, and reproducible training data — built to
@@ -214,11 +208,8 @@
                   <span class="tag">Python</span>
                 </p>
                 <div class="cta-row cta-row--card">
-                  <a
-                    class="btn btn-primary"
-                    href="https://github.com/arthursetiawan/automotive-dynamic-pricing-engine"
-                    rel="noopener"
-                    >Repository</a
+                  <span class="btn btn-primary btn--disabled" aria-disabled="true"
+                    >Repository · coming soon</span
                   >
                   <a class="btn btn-ghost" href="demos/automotive-dynamic-pricing-engine/"
                     >Live demo</a
@@ -231,12 +222,12 @@
               <div
                 class="showcase-card-head showcase-card-head--genai"
                 role="img"
-                aria-label="Placeholder visual for GenAI quote extractor showcase"
+                aria-label="Placeholder visual for GenAI Unstructured Quote Extractor"
               >
                 <span class="status-badge">In development</span>
               </div>
               <div class="rail-item--card-body">
-                <h3>GenAI unstructured quote extractor</h3>
+                <h3>GenAI Unstructured Quote Extractor</h3>
                 <p>
                   Applied GenAI pipeline for messy quote documents with rapidfuzz reconciliation and
                   a Streamlit demo — shows document-to-structured-data flows on synthetic open inputs.
@@ -260,16 +251,15 @@
               <div
                 class="showcase-card-head showcase-card-head--yournextcar"
                 role="img"
-                aria-label="Placeholder visual for YourNextCar showcase"
+                aria-label="Placeholder visual for YourNextCar"
               >
                 <span class="status-badge">In development</span>
               </div>
               <div class="rail-item--card-body">
                 <h3>YourNextCar</h3>
                 <p>
-                  Personal automotive discovery and recommendation companion — a driver-facing car
-                  finder meant to extend the DriveQuest ideas with everyday search and shortlist UX
-                  once the public repository is published.
+                  Personal automotive discovery and next-car companion — a driver-facing finder for
+                  everyday search, comparison, and shortlist UX as the public build takes shape.
                 </p>
                 <p class="tag-row" aria-label="Technologies">
                   <span class="tag">Recommendation</span>
