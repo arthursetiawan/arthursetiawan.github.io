@@ -324,6 +324,7 @@ async function runDemo() {
   if (!text) {
     results.hidden = false;
     stageStatus.hidden = true;
+  stageStatus.classList.add('is-done');
     resultsBody.hidden = true;
     resultsSummary.textContent = "No text to extract.";
     return;
@@ -332,6 +333,7 @@ async function runDemo() {
   runBtn.disabled = true;
   results.hidden = false;
   stageStatus.hidden = false;
+  stageStatus.classList.remove('is-done');
   resultsBody.hidden = true;
   resultsSummary.textContent = "";
 
@@ -350,6 +352,7 @@ async function runDemo() {
   }
 
   stageStatus.hidden = true;
+  stageStatus.classList.add('is-done');
   resultsBody.hidden = false;
 
   if (!rows.length) {
@@ -391,6 +394,7 @@ async function init() {
       console.error(err);
       runBtn.disabled = false;
       stageStatus.hidden = true;
+  stageStatus.classList.add('is-done');
       results.hidden = false;
       resultsBody.hidden = true;
       resultsSummary.textContent = "Demo failed to run. Check the browser console.";

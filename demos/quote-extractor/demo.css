@@ -207,7 +207,8 @@ label.demo-field > span {
   font-weight: 600;
 }
 
-.demo-stage[hidden] {
+.demo-stage[hidden],
+.demo-stage.is-done {
   display: none !important;
 }
 
