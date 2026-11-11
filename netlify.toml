@@ -1,0 +1,4 @@
+# Static GitHub Pages site — Netlify deploy previews publish the repo root as-is.
+[build]
+  publish = "."
+  command = "true"
