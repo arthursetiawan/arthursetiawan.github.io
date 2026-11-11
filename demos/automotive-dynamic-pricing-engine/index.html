@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automotive Dynamic Pricing Engine — Demo · Arthur Setiawan</title>
+    <meta
+      name="description"
+      content="Interactive client-side mock of the automotive dynamic pricing engine: quote inputs, /predict win probability, and /optimize-price clamping with margin floor and tariff ceiling."
+    />
+    <meta property="og:title" content="Automotive Dynamic Pricing Engine — Demo" />
+    <meta
+      property="og:description"
+      content="Synthetic quote scoring and clamped price optimization demo — no proprietary data."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#ecf2f7" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="demo.css?v=20261111a" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="wordmark" href="../../index.html">Arthur Setiawan</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="../../index.html">Home</a>
+          <a href="../../work.html#showcases">Work</a>
+          <a href="../../about.html">About</a>
+          <a class="nav-resume" href="../../resume/index.html">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="demo-hero" aria-label="Demo introduction">
+        <p class="eyebrow">Open MLOps showcase · client-side mock</p>
+        <h1>Automotive dynamic pricing engine</h1>
+        <p class="lede">
+          Score a parts quote for win probability, then optimize a selling price with commercial
+          guardrails. Responses are synthetic and run entirely in the browser — mirroring the real
+          FastAPI <code>/predict</code> and <code>/optimize-price</code> contracts.
+        </p>
+        <div class="cta-row">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/arthursetiawan/automotive-dynamic-pricing-engine"
+            rel="noopener"
+            >API repository</a
+          >
+          <a class="btn btn-ghost" href="../../work.html#showcases">Back to Work</a>
+        </div>
+      </section>
+
+      <section class="demo-shell" aria-label="Interactive pricing demo">
+        <div class="demo-grid">
+          <form id="quote-form" class="panel quote-panel" novalidate>
+            <div class="panel-head">
+              <h2>Quote inputs</h2>
+              <p>Fields match the strict Pydantic <code>QuoteRequest</code> schema.</p>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>part_category</span>
+                <select id="part_category" name="part_category" required>
+                  <option value="brake">brake</option>
+                  <option value="engine" selected>engine</option>
+                  <option value="electrical">electrical</option>
+                  <option value="body">body</option>
+                  <option value="suspension">suspension</option>
+                  <option value="transmission">transmission</option>
+                  <option value="filter">filter</option>
+                  <option value="hvac">hvac</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>dealer_tier</span>
+                <select id="dealer_tier" name="dealer_tier" required>
+                  <option value="platinum">platinum (max 40% off)</option>
+                  <option value="gold" selected>gold (max 30% off)</option>
+                  <option value="silver">silver (max 20% off)</option>
+                  <option value="bronze">bronze (max 10% off)</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>base_cost</span>
+                <input
+                  id="base_cost"
+                  name="base_cost"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.01"
+                  value="400"
+                  required
+                />
+              </label>
+
+              <label class="field">
+                <span>list_price</span>
+                <input
+                  id="list_price"
+                  name="list_price"
+                  type="number"
+                  inputmode="decimal"
+                  min="0.01"
+                  step="0.01"
+                  value="520"
+                  required
+                />
+              </label>
+
+              <label class="field">
+                <span>requested_discount <em id="discount-pct-label">(10%)</em></span>
+                <input
+                  id="requested_discount"
+                  name="requested_discount"
+                  type="range"
+                  min="0"
+                  max="0.4"
+                  step="0.01"
+                  value="0.1"
+                />
+              </label>
+
+              <label class="field">
+                <span>tariff_rate <em id="tariff-pct-label">(5%)</em></span>
+                <input
+                  id="tariff_rate"
+                  name="tariff_rate"
+                  type="range"
+                  min="0"
+                  max="0.4"
+                  step="0.01"
+                  value="0.05"
+                />
+              </label>
+
+              <label class="field field--full">
+                <span>target_margin <em id="margin-pct-label">(15%)</em> · optimize only</span>
+                <input
+                  id="target_margin"
+                  name="target_margin"
+                  type="range"
+                  min="0"
+                  max="0.45"
+                  step="0.01"
+                  value="0.15"
+                />
+              </label>
+            </div>
+
+            <p id="form-error" class="form-error" role="alert" hidden></p>
+
+            <div class="preset-row" aria-label="Edge-case presets">
+              <span class="preset-label">Try</span>
+              <button type="button" class="chip" data-preset="balanced">Balanced quote</button>
+              <button type="button" class="chip" data-preset="floor">Extreme discount → floor</button>
+              <button type="button" class="chip" data-preset="ceiling">Above-list raw → ceiling</button>
+            </div>
+
+            <div class="action-row">
+              <button type="submit" class="btn btn-primary" data-action="both">
+                Run /predict + /optimize-price
+              </button>
+              <button type="button" class="btn btn-ghost" id="btn-predict" data-action="predict">
+                /predict only
+              </button>
+              <button type="button" class="btn btn-ghost" id="btn-optimize" data-action="optimize">
+                /optimize-price only
+              </button>
+            </div>
+          </form>
+
+          <div class="results-col">
+            <article class="panel result-panel" id="predict-panel" aria-live="polite">
+              <div class="panel-head">
+                <p class="endpoint-tag">POST /predict</p>
+                <h2>Win probability</h2>
+                <p>Mock response shaped like <code>PredictResponse</code>.</p>
+              </div>
+              <div class="result-body" id="predict-body">
+                <p class="placeholder">Submit a quote to score win probability and raw recommended price.</p>
+              </div>
+            </article>
+
+            <article class="panel result-panel" id="optimize-panel" aria-live="polite">
+              <div class="panel-head">
+                <p class="endpoint-tag">POST /optimize-price</p>
+                <h2>Clamped recommendation</h2>
+                <p>
+                  <code>clamped_price = max(margin_floor, min(tariff_ceiling, raw_model_recommendation))</code>
+                </p>
+              </div>
+              <div class="result-body" id="optimize-body">
+                <p class="placeholder">Optimize to see margin floor, tariff ceiling, and the clamp path.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="api-note panel">
+          <h2>Real engine endpoints</h2>
+          <p>
+            The production-style FastAPI service in
+            <a href="https://github.com/arthursetiawan/automotive-dynamic-pricing-engine" rel="noopener"
+              >arthursetiawan/automotive-dynamic-pricing-engine</a
+            >
+            exposes the same contracts on live inference:
+          </p>
+          <ul>
+            <li><code>GET /health</code> — liveness + model load status</li>
+            <li><code>POST /predict</code> — win probability + raw recommended price</li>
+            <li><code>POST /optimize-price</code> — clamped price with margin floor &amp; tariff ceiling</li>
+          </ul>
+          <p class="note-foot">
+            This page never calls that API. The mock reimplements the published recommendation and
+            clamping formulas on synthetic scores so the demo stays static on GitHub Pages.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle · Synthetic demo only</p>
+    </footer>
+
+    <script src="demo.js?v=20261111a"></script>
+  </body>
+</html>

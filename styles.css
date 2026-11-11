@@ -357,11 +357,14 @@ body {
 
 .showcase-card-head {
   position: relative;
+  display: block;
   margin: 1.15rem 1.25rem 0;
   min-height: 5.25rem;
   border: 1px solid var(--line);
   border-radius: 0.3rem;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 
 .showcase-card-head--pricing {
