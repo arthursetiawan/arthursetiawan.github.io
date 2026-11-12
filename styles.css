@@ -111,7 +111,7 @@ body {
   position: relative;
   isolation: isolate;
   display: grid;
-  align-items: end;
+  align-items: center;
   overflow: hidden;
   color: var(--hero-ink);
   background-color: var(--hero-surface);
@@ -135,14 +135,61 @@ body {
     radial-gradient(ellipse 45% 40% at 8% 92%, rgba(13, 107, 97, 0.12), transparent 55%);
 }
 
-.hero-copy {
+.hero-inner {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1.5rem;
   max-width: var(--max);
   width: 100%;
   margin: 0 auto;
   padding: 1.65rem 1.25rem 2.35rem;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-photo {
+  margin: 0;
+  justify-self: center;
+  width: min(68%, 200px);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  max-height: min(40vh, 280px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  box-shadow: 0 12px 40px rgba(8, 16, 24, 0.08);
+}
+
+@media (min-width: 720px) {
+  .hero-inner {
+    grid-template-columns: 1fr minmax(220px, 320px);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  .hero-photo {
+    justify-self: end;
+    width: 100%;
+  }
+
+  .hero-photo img {
+    max-height: min(52vh, 420px);
+  }
 }
 
 .hero-aim {
@@ -925,8 +972,9 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .hero-copy {
+  .hero-inner {
     padding: 1.35rem 1.15rem 2rem;
+    gap: 1.25rem;
   }
 
   .feature-inset,
