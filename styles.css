@@ -138,6 +138,10 @@ body {
 .hero-inner {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 2rem);
   max-width: var(--max);
   width: 100%;
   margin: 0 auto;
@@ -147,31 +151,27 @@ body {
 .hero-copy {
   position: relative;
   z-index: 1;
+  flex: 1 1 auto;
   width: 100%;
+  min-width: 0;
   margin: 0;
   padding: 0;
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.hero-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(0.75rem, 3vw, 1.25rem);
-  max-width: 38rem;
-}
-
-.hero-title-row h1 {
-  flex: 1 1 auto;
-  min-width: 0;
-  max-width: none;
-}
-
-.hero-snapshot {
+.hero-portrait {
   flex: 0 0 auto;
+  width: min(72%, 240px);
+  max-height: min(48vh, 380px);
+  margin: 0;
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+.hero-portrait img {
   display: block;
-  width: 88px;
-  height: 88px;
+  width: 100%;
+  height: auto;
+  max-height: min(48vh, 380px);
   object-fit: cover;
   object-position: center 18%;
   border: 1px solid var(--line);
@@ -181,12 +181,15 @@ body {
 
 @media (min-width: 720px) {
   .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(1.75rem, 4vw, 2.75rem);
     padding: 2rem 1.5rem 2.5rem;
   }
 
-  .hero-snapshot {
-    width: 104px;
-    height: 104px;
+  .hero-portrait {
+    width: clamp(200px, 22vw, 260px);
+    max-height: min(48vh, 380px);
   }
 }
 
@@ -998,6 +1001,7 @@ body {
   }
 
   .hero-copy,
+  .hero-portrait,
   .reveal,
   .rail-item--card,
   .project-card-preview > img,
