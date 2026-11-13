@@ -161,8 +161,8 @@ body {
 
 .hero-portrait {
   flex: 0 0 auto;
-  width: min(72%, 240px);
-  max-height: min(48vh, 380px);
+  width: min(85%, 360px);
+  max-height: min(44vh, 420px);
   margin: 0;
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
 }
@@ -171,7 +171,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  max-height: min(48vh, 380px);
+  max-height: min(44vh, 420px);
   object-fit: cover;
   object-position: center 18%;
   border: 1px solid var(--line);
@@ -182,14 +182,18 @@ body {
 @media (min-width: 720px) {
   .hero-inner {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: clamp(1.75rem, 4vw, 2.75rem);
     padding: 2rem 1.5rem 2.5rem;
   }
 
   .hero-portrait {
-    width: clamp(200px, 22vw, 260px);
-    max-height: min(48vh, 380px);
+    width: clamp(280px, 32vw, 380px);
+    max-height: min(56vh, 480px);
+  }
+
+  .hero-portrait img {
+    max-height: min(56vh, 480px);
   }
 }
 
