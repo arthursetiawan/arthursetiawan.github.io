@@ -1,19 +1,11 @@
-# Static export config used for this demo
+# Rebuild TawarKan Pages demo
 
-```ts
-import type { NextConfig } from "next";
+From the `arthursetiawan/tawarkan` app repo:
 
-const repoBase = "/demos/tawarkan";
-
-const nextConfig: NextConfig = {
-  output: "export",
-  basePath: repoBase,
-  assetPrefix: repoBase,
-  trailingSlash: true,
-  images: { unoptimized: true },
-};
-
-export default nextConfig;
+```bash
+STATIC_EXPORT=1 npm run build
+# then replace this folder with the contents of `out/`
+rsync -a --delete out/ path/to/arthursetiawan.github.io/demos/tawarkan/
 ```
 
-Could not push this config to `arthursetiawan/tawarkan` from the Pages checkout (403). Apply there when permissions allow.
+`basePath` / `assetPrefix`: `/demos/tawarkan`
