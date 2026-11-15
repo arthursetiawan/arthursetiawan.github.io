@@ -1,4 +1,11 @@
 (() => {
+  /**
+   * Live FastAPI base URL (no trailing slash).
+   * Source of truth: parent store `internal/pricing-api-url.md`.
+   * Empty / placeholder when deploy is still pending — do not invent a host.
+   */
+  const CONFIGURED_API_BASE_URL = "";
+
   const TIER_MAX_DISCOUNT = {
     platinum: 0.4,
     gold: 0.3,
@@ -48,6 +55,8 @@
     },
   };
 
+  const STORAGE_KEY = "adpe-demo-mode";
+
   const els = {
     form: document.getElementById("quote-form"),
     error: document.getElementById("form-error"),
@@ -57,6 +66,10 @@
     marginLabel: document.getElementById("margin-pct-label"),
     predictBody: document.getElementById("predict-body"),
     optimizeBody: document.getElementById("optimize-body"),
+    modeStatus: document.getElementById("mode-status"),
+    apiBaseDisplay: document.getElementById("api-base-display"),
+    modeMock: document.getElementById("mode-mock"),
+    modeLive: document.getElementById("mode-live"),
     fields: {
       part_category: document.getElementById("part_category"),
       dealer_tier: document.getElementById("dealer_tier"),
@@ -69,6 +82,21 @@
   };
 
   if (els.year) els.year.textContent = String(new Date().getFullYear());
+
+  let activeForceAboveCeiling = false;
+  let mode = "mock";
+  let runToken = 0;
+
+  function normalizeBaseUrl(raw) {
+    if (!raw || typeof raw !== "string") return "";
+    const trimmed = raw.trim().replace(/\/+$/, "");
+    if (!trimmed || trimmed === "blocked" || trimmed.startsWith("<!--")) return "";
+    if (!/^https?:\/\//i.test(trimmed)) return "";
+    return trimmed;
+  }
+
+  const apiBaseUrl = normalizeBaseUrl(CONFIGURED_API_BASE_URL);
+  const liveConfigured = Boolean(apiBaseUrl);
 
   function pct(n) {
     return `${(n * 100).toFixed(0)}%`;
@@ -102,6 +130,24 @@
       requested_discount: Number(els.fields.requested_discount.value),
       tariff_rate: Number(els.fields.tariff_rate.value),
       target_margin: Number(els.fields.target_margin.value),
+    };
+  }
+
+  function quoteRequestBody(quote) {
+    return {
+      part_category: quote.part_category,
+      dealer_tier: quote.dealer_tier,
+      base_cost: quote.base_cost,
+      list_price: quote.list_price,
+      requested_discount: quote.requested_discount,
+      tariff_rate: quote.tariff_rate,
+    };
+  }
+
+  function optimizeRequestBody(quote) {
+    return {
+      ...quoteRequestBody(quote),
+      target_margin: quote.target_margin,
     };
   }
 
@@ -171,6 +217,16 @@
       bandExpanded = true;
     }
     const clamped = Math.max(marginFloor, Math.min(tariffCeiling, raw));
+    return {
+      marginFloor,
+      tariffCeiling,
+      clamped,
+      reason: clampReason(raw, marginFloor, tariffCeiling, bandExpanded),
+      bandExpanded,
+    };
+  }
+
+  function clampReason(raw, marginFloor, tariffCeiling, bandExpanded) {
     let reason;
     if (raw < marginFloor) {
       reason = {
@@ -191,7 +247,7 @@
     if (bandExpanded) {
       reason.text += " Feasible band was empty; tariff ceiling was expanded to the margin floor.";
     }
-    return { marginFloor, tariffCeiling, clamped, reason, bandExpanded };
+    return reason;
   }
 
   function latencyMs() {
@@ -208,32 +264,96 @@
     els.error.textContent = message;
   }
 
-  function renderPredict(quote, winProbability, recommendedPrice) {
-    const payload = {
-      win_probability: round(winProbability, 4),
-      recommended_price: round(recommendedPrice, 2),
-      latency_ms: latencyMs(),
-      model_name: "mock-logistic-blend",
-    };
+  function setBusy(busy) {
+    els.form.classList.toggle("is-busy", busy);
+    els.form.querySelectorAll("button").forEach((btn) => {
+      btn.disabled = busy;
+    });
+  }
+
+  function updateModeUi() {
+    const isLive = mode === "live";
+    els.modeMock.classList.toggle("is-active", !isLive);
+    els.modeLive.classList.toggle("is-active", isLive);
+    els.modeMock.setAttribute("aria-pressed", String(!isLive));
+    els.modeLive.setAttribute("aria-pressed", String(isLive));
+
+    if (els.apiBaseDisplay) {
+      els.apiBaseDisplay.textContent = liveConfigured
+        ? apiBaseUrl
+        : "awaiting deploy (no URL configured)";
+    }
+
+    if (!els.modeStatus) return;
+
+    if (isLive && liveConfigured) {
+      els.modeStatus.hidden = false;
+      els.modeStatus.className = "mode-status is-live";
+      els.modeStatus.textContent = `Live mode · POST ${apiBaseUrl}/predict and /optimize-price`;
+    } else if (isLive && !liveConfigured) {
+      els.modeStatus.hidden = false;
+      els.modeStatus.className = "mode-status is-warn";
+      els.modeStatus.textContent =
+        "Live API base URL is not configured yet (sibling deploy pending). Switch stays on Live so you can retry once the host is wired; requests will fail until then. Use Mock for a working demo.";
+    } else {
+      els.modeStatus.hidden = false;
+      els.modeStatus.className = "mode-status is-mock";
+      els.modeStatus.textContent = liveConfigured
+        ? "Mock mode · synthetic browser scoring (toggle Live to hit the deployed FastAPI)."
+        : "Mock mode · synthetic browser scoring. Live URL awaits deploy — leave Mock on until then.";
+    }
+  }
+
+  function setMode(next, { persist = true } = {}) {
+    mode = next === "live" ? "live" : "mock";
+    if (persist) {
+      try {
+        localStorage.setItem(STORAGE_KEY, mode);
+      } catch {
+        /* ignore */
+      }
+    }
+    updateModeUi();
+  }
+
+  function initMode() {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEY);
+    } catch {
+      stored = null;
+    }
+    if (stored === "live" || stored === "mock") {
+      setMode(stored, { persist: false });
+    } else {
+      setMode(liveConfigured ? "live" : "mock", { persist: false });
+    }
+  }
+
+  function renderPredict(payload) {
+    const win = Number(payload.win_probability);
+    const recommended = Number(payload.recommended_price);
+    const latency = Number(payload.latency_ms);
+    const modelName = payload.model_name || "unknown";
 
     els.predictBody.innerHTML = `
       <div class="metric-row">
         <div class="metric">
           <span class="label">win_probability</span>
-          <span class="value accent">${(payload.win_probability * 100).toFixed(1)}%</span>
+          <span class="value accent">${(win * 100).toFixed(1)}%</span>
         </div>
         <div class="metric">
           <span class="label">recommended_price</span>
-          <span class="value">${money(payload.recommended_price)}</span>
+          <span class="value">${money(recommended)}</span>
         </div>
       </div>
       <div class="win-bar" aria-hidden="true">
         <div class="win-bar-track">
-          <div class="win-bar-fill" style="width:${payload.win_probability * 100}%"></div>
+          <div class="win-bar-fill" style="width:${win * 100}%"></div>
         </div>
         <div class="win-bar-meta">
           <span>Low confidence</span>
-          <span>${payload.model_name} · ${payload.latency_ms} ms</span>
+          <span>${escapeHtml(modelName)} · ${latency.toFixed(2)} ms</span>
           <span>High confidence</span>
         </div>
       </div>
@@ -241,52 +361,62 @@
     `;
   }
 
-  function renderOptimize(quote, winProbability, raw, opt) {
-    const payload = {
-      raw_model_recommendation: round(raw, 2),
-      margin_floor: round(opt.marginFloor, 2),
-      tariff_ceiling: round(opt.tariffCeiling, 2),
-      clamped_price: round(opt.clamped, 2),
-      win_probability: round(winProbability, 4),
-      latency_ms: latencyMs(),
-      model_name: "mock-logistic-blend",
+  function renderOptimize(payload, reason) {
+    const values = {
+      raw_model_recommendation: Number(payload.raw_model_recommendation),
+      margin_floor: Number(payload.margin_floor),
+      tariff_ceiling: Number(payload.tariff_ceiling),
+      clamped_price: Number(payload.clamped_price),
+      win_probability: Number(payload.win_probability),
+      latency_ms: Number(payload.latency_ms),
+      model_name: payload.model_name || "unknown",
     };
 
-    const minP = Math.min(payload.margin_floor, payload.raw_model_recommendation, payload.tariff_ceiling, payload.clamped_price);
-    const maxP = Math.max(payload.margin_floor, payload.raw_model_recommendation, payload.tariff_ceiling, payload.clamped_price);
+    const minP = Math.min(
+      values.margin_floor,
+      values.raw_model_recommendation,
+      values.tariff_ceiling,
+      values.clamped_price
+    );
+    const maxP = Math.max(
+      values.margin_floor,
+      values.raw_model_recommendation,
+      values.tariff_ceiling,
+      values.clamped_price
+    );
     const span = Math.max(maxP - minP, 1);
     const pad = span * 0.12;
     const lo = minP - pad;
     const hi = maxP + pad;
     const pos = (v) => `${((v - lo) / (hi - lo)) * 100}%`;
-    const bandStart = ((payload.margin_floor - lo) / (hi - lo)) * 100;
-    const bandEnd = ((payload.tariff_ceiling - lo) / (hi - lo)) * 100;
+    const bandStart = ((values.margin_floor - lo) / (hi - lo)) * 100;
+    const bandEnd = ((values.tariff_ceiling - lo) / (hi - lo)) * 100;
 
     els.optimizeBody.innerHTML = `
       <div class="metric-row">
         <div class="metric">
           <span class="label">clamped_price</span>
-          <span class="value accent">${money(payload.clamped_price)}</span>
+          <span class="value accent">${money(values.clamped_price)}</span>
         </div>
         <div class="metric">
           <span class="label">raw_model_recommendation</span>
-          <span class="value">${money(payload.raw_model_recommendation)}</span>
+          <span class="value">${money(values.raw_model_recommendation)}</span>
         </div>
         <div class="metric">
           <span class="label">margin_floor</span>
-          <span class="value">${money(payload.margin_floor)}</span>
+          <span class="value">${money(values.margin_floor)}</span>
         </div>
         <div class="metric">
           <span class="label">tariff_ceiling</span>
-          <span class="value">${money(payload.tariff_ceiling)}</span>
+          <span class="value">${money(values.tariff_ceiling)}</span>
         </div>
       </div>
       <div class="clamp-viz" style="--band-start:${bandStart}%; --band-end:${bandEnd}%;">
         <div class="clamp-track" aria-hidden="true">
-          <span class="clamp-marker clamp-marker--floor" style="left:${pos(payload.margin_floor)}"></span>
-          <span class="clamp-marker clamp-marker--ceiling" style="left:${pos(payload.tariff_ceiling)}"></span>
-          <span class="clamp-marker clamp-marker--raw" style="left:${pos(payload.raw_model_recommendation)}"></span>
-          <span class="clamp-marker clamp-marker--clamped" style="left:${pos(payload.clamped_price)}"></span>
+          <span class="clamp-marker clamp-marker--floor" style="left:${pos(values.margin_floor)}"></span>
+          <span class="clamp-marker clamp-marker--ceiling" style="left:${pos(values.tariff_ceiling)}"></span>
+          <span class="clamp-marker clamp-marker--raw" style="left:${pos(values.raw_model_recommendation)}"></span>
+          <span class="clamp-marker clamp-marker--clamped" style="left:${pos(values.clamped_price)}"></span>
         </div>
         <div class="clamp-legend">
           <span class="leg-floor">margin floor</span>
@@ -295,7 +425,7 @@
           <span class="leg-clamped">clamped price</span>
         </div>
       </div>
-      <p class="clamp-reason ${opt.reason.kind === "pass" ? "is-pass" : ""}">${escapeHtml(opt.reason.text)}</p>
+      <p class="clamp-reason ${reason.kind === "pass" ? "is-pass" : ""}">${escapeHtml(reason.text)}</p>
       <pre class="json-block">${escapeHtml(JSON.stringify(payload, null, 2))}</pre>
     `;
   }
@@ -307,7 +437,120 @@
       .replaceAll(">", "&gt;");
   }
 
-  function run(mode) {
+  function formatApiError(status, detail) {
+    if (typeof detail === "string") return `API ${status}: ${detail}`;
+    if (Array.isArray(detail)) {
+      const parts = detail
+        .map((item) => {
+          if (!item || typeof item !== "object") return String(item);
+          const loc = Array.isArray(item.loc) ? item.loc.join(".") : "";
+          return loc ? `${loc}: ${item.msg}` : item.msg || JSON.stringify(item);
+        })
+        .filter(Boolean);
+      return `API ${status}: ${parts.join("; ") || "validation error"}`;
+    }
+    if (detail && typeof detail === "object") {
+      return `API ${status}: ${JSON.stringify(detail)}`;
+    }
+    return `API request failed (${status})`;
+  }
+
+  async function postJson(path, body) {
+    if (!apiBaseUrl) {
+      throw new Error(
+        "Live API base URL is not configured yet. Awaiting sibling deploy — use Mock mode until the host is wired."
+      );
+    }
+    const url = `${apiBaseUrl}${path}`;
+    let response;
+    try {
+      response = await fetch(url, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+    } catch (err) {
+      const msg = err && err.message ? err.message : "network error";
+      throw new Error(`Could not reach ${url} (${msg}). Falling back tip: switch to Mock.`);
+    }
+
+    let data = null;
+    const text = await response.text();
+    if (text) {
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = null;
+      }
+    }
+
+    if (!response.ok) {
+      const detail = data && (data.detail !== undefined ? data.detail : data);
+      throw new Error(formatApiError(response.status, detail || text || response.statusText));
+    }
+    if (!data || typeof data !== "object") {
+      throw new Error(`API ${path} returned a non-JSON body.`);
+    }
+    return data;
+  }
+
+  function runMock(modeKind, quote) {
+    const winProbability = mockWinProbability(quote);
+    const raw = recommendPrice(quote, winProbability);
+
+    if (modeKind === "predict" || modeKind === "both") {
+      renderPredict({
+        win_probability: round(winProbability, 4),
+        recommended_price: round(raw, 2),
+        latency_ms: latencyMs(),
+        model_name: "mock-logistic-blend",
+      });
+    }
+    if (modeKind === "optimize" || modeKind === "both") {
+      const opt = optimizePrice(quote, winProbability, raw);
+      renderOptimize(
+        {
+          raw_model_recommendation: round(raw, 2),
+          margin_floor: round(opt.marginFloor, 2),
+          tariff_ceiling: round(opt.tariffCeiling, 2),
+          clamped_price: round(opt.clamped, 2),
+          win_probability: round(winProbability, 4),
+          latency_ms: latencyMs(),
+          model_name: "mock-logistic-blend",
+        },
+        opt.reason
+      );
+    }
+  }
+
+  async function runLive(modeKind, quote) {
+    const tasks = [];
+    if (modeKind === "predict" || modeKind === "both") {
+      tasks.push(
+        postJson("/predict", quoteRequestBody(quote)).then((payload) => {
+          renderPredict(payload);
+        })
+      );
+    }
+    if (modeKind === "optimize" || modeKind === "both") {
+      tasks.push(
+        postJson("/optimize-price", optimizeRequestBody(quote)).then((payload) => {
+          const raw = Number(payload.raw_model_recommendation);
+          const floor = Number(payload.margin_floor);
+          const ceiling = Number(payload.tariff_ceiling);
+          const bandExpanded = floor > quote.list_price * (1 + 0.25 * quote.tariff_rate) + 1e-6;
+          const reason = clampReason(raw, floor, ceiling, bandExpanded);
+          renderOptimize(payload, reason);
+        })
+      );
+    }
+    await Promise.all(tasks);
+  }
+
+  async function run(modeKind) {
     const quote = readQuote();
     quote.force_above_ceiling = activeForceAboveCeiling;
     const error = validate(quote);
@@ -317,19 +560,22 @@
     }
     showError(null);
 
-    const winProbability = mockWinProbability(quote);
-    const raw = recommendPrice(quote, winProbability);
+    const token = ++runToken;
+    if (mode === "live") {
+      setBusy(true);
+      try {
+        await runLive(modeKind, quote);
+      } catch (err) {
+        if (token !== runToken) return;
+        showError(err && err.message ? err.message : "Live API request failed.");
+      } finally {
+        if (token === runToken) setBusy(false);
+      }
+      return;
+    }
 
-    if (mode === "predict" || mode === "both") {
-      renderPredict(quote, winProbability, raw);
-    }
-    if (mode === "optimize" || mode === "both") {
-      const opt = optimizePrice(quote, winProbability, raw);
-      renderOptimize(quote, winProbability, raw, opt);
-    }
+    runMock(modeKind, quote);
   }
-
-  let activeForceAboveCeiling = false;
 
   function applyPreset(name) {
     const preset = PRESETS[name];
@@ -372,6 +618,18 @@
     btn.addEventListener("click", () => applyPreset(btn.getAttribute("data-preset")));
   });
 
+  els.modeMock.addEventListener("click", () => {
+    setMode("mock");
+    showError(null);
+    run("both");
+  });
+  els.modeLive.addEventListener("click", () => {
+    setMode("live");
+    showError(null);
+    run("both");
+  });
+
+  initMode();
   syncLabels();
   run("both");
 })();

@@ -6,12 +6,12 @@
     <title>Automotive Dynamic Pricing Engine — Demo · Arthur Setiawan</title>
     <meta
       name="description"
-      content="Interactive client-side mock of the automotive dynamic pricing engine: quote inputs, /predict win probability, and /optimize-price clamping with margin floor and tariff ceiling."
+      content="Interactive automotive dynamic pricing demo: live FastAPI /predict and /optimize-price with a client-side mock fallback toggle."
     />
     <meta property="og:title" content="Automotive Dynamic Pricing Engine — Demo" />
     <meta
       property="og:description"
-      content="Synthetic quote scoring and clamped price optimization demo — no proprietary data."
+      content="Quote scoring and clamped price optimization — live API or synthetic mock, no proprietary data."
     />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#ecf2f7" />
@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="demo.css?v=20261111a" />
+    <link rel="stylesheet" href="demo.css?v=20261115a" />
   </head>
   <body>
     <header class="topbar">
@@ -40,14 +40,15 @@
     <main>
       <section class="demo-hero" aria-label="Demo introduction">
         <p class="eyebrow">
-          Open MLOps showcase · client-side mock ·
+          Open MLOps showcase · live API + mock fallback ·
           <a href="../automotive-pricing/">Recruiter-friendly version</a>
         </p>
         <h1>Automotive dynamic pricing engine</h1>
         <p class="lede">
           Score a parts quote for win probability, then optimize a selling price with commercial
-          guardrails. Responses are synthetic and run entirely in the browser — mirroring the real
-          FastAPI <code>/predict</code> and <code>/optimize-price</code> contracts.
+          guardrails. Toggle between the deployed FastAPI
+          <code>/predict</code> / <code>/optimize-price</code> endpoints and a browser mock of the
+          same contracts.
         </p>
         <div class="cta-row">
           <a
@@ -61,6 +62,25 @@
       </section>
 
       <section class="demo-shell" aria-label="Interactive pricing demo">
+        <div class="mode-bar panel" aria-label="Inference mode">
+          <div class="mode-bar-copy">
+            <h2>Inference source</h2>
+            <p>
+              Base URL:
+              <code id="api-base-display">awaiting deploy (no URL configured)</code>
+            </p>
+          </div>
+          <div class="mode-toggle" role="group" aria-label="Mock or live API">
+            <button type="button" class="mode-btn is-active" id="mode-mock" aria-pressed="true">
+              Mock
+            </button>
+            <button type="button" class="mode-btn" id="mode-live" aria-pressed="false">
+              Live API
+            </button>
+          </div>
+          <p id="mode-status" class="mode-status is-mock" role="status"></p>
+        </div>
+
         <div class="demo-grid">
           <form id="quote-form" class="panel quote-panel" novalidate>
             <div class="panel-head">
@@ -188,7 +208,7 @@
               <div class="panel-head">
                 <p class="endpoint-tag">POST /predict</p>
                 <h2>Win probability</h2>
-                <p>Mock response shaped like <code>PredictResponse</code>.</p>
+                <p>Response shaped like <code>PredictResponse</code> (live or mock).</p>
               </div>
               <div class="result-body" id="predict-body">
                 <p class="placeholder">Submit a quote to score win probability and raw recommended price.</p>
@@ -211,13 +231,13 @@
         </div>
 
         <aside class="api-note panel">
-          <h2>Real engine endpoints</h2>
+          <h2>Engine endpoints</h2>
           <p>
-            The production-style FastAPI service in
+            The FastAPI service in
             <a href="https://github.com/arthursetiawan/automotive-dynamic-pricing-engine" rel="noopener"
               >arthursetiawan/automotive-dynamic-pricing-engine</a
             >
-            exposes the same contracts on live inference:
+            exposes:
           </p>
           <ul>
             <li><code>GET /health</code> — liveness + model load status</li>
@@ -225,17 +245,19 @@
             <li><code>POST /optimize-price</code> — clamped price with margin floor &amp; tariff ceiling</li>
           </ul>
           <p class="note-foot">
-            This page never calls that API. The mock reimplements the published recommendation and
-            clamping formulas on synthetic scores so the demo stays static on GitHub Pages.
+            Live mode POSTs from this origin
+            (<code>https://arthursetiawan.github.io</code> to the configured API host (CORS must allow
+            it). Mock mode keeps the same contracts with synthetic scores when the API is offline or
+            the base URL is still awaiting deploy.
           </p>
         </aside>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle · Synthetic demo only</p>
+      <p>© <span id="year">2026</span> Arthur Setiawan · Seattle · Pricing engine demo</p>
     </footer>
 
-    <script src="demo.js?v=20261111a"></script>
+    <script src="demo.js?v=20261115a"></script>
   </body>
 </html>
