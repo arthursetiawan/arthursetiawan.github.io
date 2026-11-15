@@ -1,0 +1,304 @@
+{
+  "invoice_dealer_parts.txt": {
+    "label": "Dealer parts quote",
+    "text": "DEALER PARTS QUOTE (scanned PDF simulation)\nDealer: Lakeside Ford Parts Counter\nQuote ID: LF-88421\n\nBRK-0027-1190 | Brake pad set Rear Motorcraft | $92.10 | Motorcraft | $98.00\nWP-0034-2204 | Water pump Front Gates | $74.25 | Gates\nSEN-0041-7730 | O2 sensor Upstream NTK | $48.60 | NTK | 52.15\nHUB-0055-9012 | Wheel hub bearing RH Timken | $129.99 | Timken\n\nVendor note: Motorcraft / Gates / NTK / Timken mixed OEM fulfillment.\nTerms: Net 30. Prices exclude core charges.\n",
+    "quote": {
+      "source_name": "invoice_dealer_parts.txt",
+      "vendor_hint": "Motorcraft",
+      "currency": "USD",
+      "line_items": [
+        {
+          "PartNumber": "BRK-0027-1190",
+          "Description": "Brake pad set Rear Motorcraft",
+          "UnitCost": 92.1,
+          "CompetitorPrice": 98.0,
+          "Vendor": "Motorcraft"
+        },
+        {
+          "PartNumber": "WP-0034-2204",
+          "Description": "Water pump Front Gates",
+          "UnitCost": 74.25,
+          "CompetitorPrice": null,
+          "Vendor": "Gates"
+        },
+        {
+          "PartNumber": "SEN-0041-7730",
+          "Description": "O2 sensor Upstream NTK",
+          "UnitCost": 48.6,
+          "CompetitorPrice": 52.15,
+          "Vendor": "NTK"
+        },
+        {
+          "PartNumber": "HUB-0055-9012",
+          "Description": "Wheel hub bearing RH Timken",
+          "UnitCost": 129.99,
+          "CompetitorPrice": null,
+          "Vendor": "Timken"
+        }
+      ],
+      "raw_notes": "mock heuristic extraction"
+    },
+    "rows": [
+      {
+        "PartNumber": "BRK-0027-1190",
+        "Description": "Brake pad set Rear Motorcraft",
+        "UnitCost": 92.1,
+        "CompetitorPrice": 98.0,
+        "Vendor": "Motorcraft",
+        "MatchedPart": "BRK-0440-1693",
+        "MatchedDesc": "Brake pad set Rear Bosch",
+        "MatchedVendor": "Bosch",
+        "MatchedPrice": 88.35,
+        "part_score": 0.7034,
+        "price_score": 0.9593,
+        "vendor_score": 0.2667,
+        "Confidence": 0.7621,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched BRK-0440-1693 @ confidence 0.7621"
+      },
+      {
+        "PartNumber": "WP-0034-2204",
+        "Description": "Water pump Front Gates",
+        "UnitCost": 74.25,
+        "CompetitorPrice": null,
+        "Vendor": "Gates",
+        "MatchedPart": "WP-0485-4509",
+        "MatchedDesc": "Water pump Front NTK",
+        "MatchedVendor": "NTK",
+        "MatchedPrice": 66.55,
+        "part_score": 0.6167,
+        "price_score": 0.8963,
+        "vendor_score": 0.25,
+        "Confidence": 0.6919,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched WP-0485-4509 @ confidence 0.6919"
+      },
+      {
+        "PartNumber": "SEN-0041-7730",
+        "Description": "O2 sensor Upstream NTK",
+        "UnitCost": 48.6,
+        "CompetitorPrice": 52.15,
+        "Vendor": "NTK",
+        "MatchedPart": "FRT-0177-1320",
+        "MatchedDesc": "Freight pallet strap kit Universal NGK",
+        "MatchedVendor": "NGK",
+        "MatchedPrice": 50.53,
+        "part_score": 0.5666,
+        "price_score": 0.9618,
+        "vendor_score": 0.6667,
+        "Confidence": 0.7347,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched FRT-0177-1320 @ confidence 0.7347"
+      },
+      {
+        "PartNumber": "HUB-0055-9012",
+        "Description": "Wheel hub bearing RH Timken",
+        "UnitCost": 129.99,
+        "CompetitorPrice": null,
+        "Vendor": "Timken",
+        "MatchedPart": "HUB-0209-6590",
+        "MatchedDesc": "Wheel hub bearing LH Mann-Filter",
+        "MatchedVendor": "Mann-Filter",
+        "MatchedPrice": 131.07,
+        "part_score": 0.7154,
+        "price_score": 0.9918,
+        "vendor_score": 0.2353,
+        "Confidence": 0.7779,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched HUB-0209-6590 @ confidence 0.7779"
+      }
+    ]
+  },
+  "invoice_freight_ltl.txt": {
+    "label": "Freight LTL invoice",
+    "text": "SIMULATED PDF INVOICE \u2014 Midwest Freight Quotes LLC\nInvoice #: MFQ-2026-1182\nDate: 2026-03-12\nBill To: Northstar Automotive Distribution\n\nLine items (noisy OCR transcription):\n\nPart Number: BRK-0007-4412\nDescription: Brake pad set Front Bosch \u2014 ceramic\nUnit Cost: $64.50\nCompetitor Price: $71.20\nVendor: Bosch\n\n---\n\nPN: FLT-0012-8831\nDesc: Oil filter Universal Mann-Filter\nPrice: 12.75\nSupplier: Mann-Filter\n\n---\n\nSKU ALT-0023-5501\nItem: Alternator reman Front Denso (core return required)\ncost = 188.00\ncompetitor price: 205.40\nvendor: Denso\n\nNotes: LTL palletized; dock appointment required. Freight surcharge not itemized.\n",
+    "quote": {
+      "source_name": "invoice_freight_ltl.txt",
+      "vendor_hint": "Bosch",
+      "currency": "USD",
+      "line_items": [
+        {
+          "PartNumber": "BRK-0007-4412",
+          "Description": "Brake pad set Front Bosch \u2014 ceramic",
+          "UnitCost": 64.5,
+          "CompetitorPrice": 71.2,
+          "Vendor": "Bosch"
+        },
+        {
+          "PartNumber": "FLT-0012-8831",
+          "Description": "Oil filter Universal Mann-Filter",
+          "UnitCost": 12.75,
+          "CompetitorPrice": null,
+          "Vendor": "Mann-Filter"
+        },
+        {
+          "PartNumber": "ALT-0023-5501",
+          "Description": "SKU ALT-0023-5501",
+          "UnitCost": 188.0,
+          "CompetitorPrice": 205.4,
+          "Vendor": "Denso"
+        }
+      ],
+      "raw_notes": "mock heuristic extraction"
+    },
+    "rows": [
+      {
+        "PartNumber": "BRK-0007-4412",
+        "Description": "Brake pad set Front Bosch \u2014 ceramic",
+        "UnitCost": 64.5,
+        "CompetitorPrice": 71.2,
+        "Vendor": "Bosch",
+        "MatchedPart": "BRK-0020-4432",
+        "MatchedDesc": "Brake pad set Front Bosch",
+        "MatchedVendor": "Bosch",
+        "MatchedPrice": 84.27,
+        "part_score": 0.8462,
+        "price_score": 0.7654,
+        "vendor_score": 1.0,
+        "Confidence": 0.8292,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched BRK-0020-4432 @ confidence 0.8292"
+      },
+      {
+        "PartNumber": "FLT-0012-8831",
+        "Description": "Oil filter Universal Mann-Filter",
+        "UnitCost": 12.75,
+        "CompetitorPrice": null,
+        "Vendor": "Mann-Filter",
+        "MatchedPart": "FLT-0061-2163",
+        "MatchedDesc": "Oil filter LH Denso",
+        "MatchedVendor": "Denso",
+        "MatchedPrice": 14.98,
+        "part_score": 0.7201,
+        "price_score": 0.8511,
+        "vendor_score": 0.125,
+        "Confidence": 0.713,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched FLT-0061-2163 @ confidence 0.7130"
+      },
+      {
+        "PartNumber": "ALT-0023-5501",
+        "Description": "SKU ALT-0023-5501",
+        "UnitCost": 188.0,
+        "CompetitorPrice": 205.4,
+        "Vendor": "Denso",
+        "MatchedPart": "ALT-0042-3591",
+        "MatchedDesc": "Alternator reman Rear ACDelco",
+        "MatchedVendor": "ACDelco",
+        "MatchedPrice": 190.39,
+        "part_score": 0.7746,
+        "price_score": 0.9874,
+        "vendor_score": 0.5,
+        "Confidence": 0.8323,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched ALT-0042-3591 @ confidence 0.8323"
+      }
+    ]
+  },
+  "invoice_noisy_ocr.txt": {
+    "label": "Noisy OCR / fax",
+    "text": "*** OCR NOISE SAMPLE \u2014 freight quote fax ***\n\nvendr: B0sch\npart#: BRK 0007 4412\ndescryption: Brke pad sett Frnt\nunitcost: 66.00\ncompetitorprice: 70\n\n===========\n\nPart Number = FLT00128831\nDescription: oil filtr univ.\nUnit Cost $14\nVendor Mann Filter\n\n===========\n\nPN: ZZ-9999-0000\nDescription: Mystery gasket unknown\nUnit Cost: 999.99\nVendor: NoSuchVendor Inc\n\n(This last line should fall below reconcile confidence and flag human review.)\n",
+    "quote": {
+      "source_name": "invoice_noisy_ocr.txt",
+      "vendor_hint": "B0sch",
+      "currency": "USD",
+      "line_items": [
+        {
+          "PartNumber": "BRK-0007-4412",
+          "Description": "Brke pad sett Frnt",
+          "UnitCost": 66.0,
+          "CompetitorPrice": 70.0,
+          "Vendor": "B0sch"
+        },
+        {
+          "PartNumber": "FLT-0012-8831",
+          "Description": "oil filtr univ.",
+          "UnitCost": 14.0,
+          "CompetitorPrice": null,
+          "Vendor": "Mann Filter"
+        },
+        {
+          "PartNumber": "ZZ-9999-0000",
+          "Description": "Mystery gasket unknown",
+          "UnitCost": 999.99,
+          "CompetitorPrice": null,
+          "Vendor": "NoSuchVendor Inc"
+        }
+      ],
+      "raw_notes": "mock heuristic extraction"
+    },
+    "rows": [
+      {
+        "PartNumber": "BRK-0007-4412",
+        "Description": "Brke pad sett Frnt",
+        "UnitCost": 66.0,
+        "CompetitorPrice": 70.0,
+        "Vendor": "B0sch",
+        "MatchedPart": "BRK-0020-4432",
+        "MatchedDesc": "Brake pad set Front Bosch",
+        "MatchedVendor": "Bosch",
+        "MatchedPrice": 84.27,
+        "part_score": 0.8462,
+        "price_score": 0.7832,
+        "vendor_score": 0.8,
+        "Confidence": 0.8164,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched BRK-0020-4432 @ confidence 0.8164"
+      },
+      {
+        "PartNumber": "FLT-0012-8831",
+        "Description": "oil filtr univ.",
+        "UnitCost": 14.0,
+        "CompetitorPrice": null,
+        "Vendor": "Mann Filter",
+        "MatchedPart": "FLT-0061-2163",
+        "MatchedDesc": "Oil filter LH Denso",
+        "MatchedVendor": "Denso",
+        "MatchedPrice": 14.98,
+        "part_score": 0.7201,
+        "price_score": 0.9346,
+        "vendor_score": 0.25,
+        "Confidence": 0.7589,
+        "NeedsReview": false,
+        "FallbackLow": null,
+        "FallbackHigh": null,
+        "Reason": "matched FLT-0061-2163 @ confidence 0.7589"
+      },
+      {
+        "PartNumber": "ZZ-9999-0000",
+        "Description": "Mystery gasket unknown",
+        "UnitCost": 999.99,
+        "CompetitorPrice": null,
+        "Vendor": "NoSuchVendor Inc",
+        "MatchedPart": "STR-0103-3200",
+        "MatchedDesc": "Starter motor Front Motorcraft",
+        "MatchedVendor": "Motorcraft",
+        "MatchedPrice": 361.98,
+        "part_score": 0.4218,
+        "price_score": 0.362,
+        "vendor_score": 0.2308,
+        "Confidence": 0.3788,
+        "NeedsReview": true,
+        "FallbackLow": 849.99,
+        "FallbackHigh": 1149.99,
+        "Reason": "confidence 0.3788 < 0.40; flagged for human review with deterministic fallback bounds"
+      }
+    ]
+  }
+}
