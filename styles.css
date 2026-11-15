@@ -45,6 +45,34 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.25rem;
+  background: var(--hero-ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+.btn:focus-visible,
+.wordmark:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -894,6 +922,30 @@ body {
   padding: 1rem 1.25rem 2.5rem;
   color: var(--ink-soft);
   font-size: 0.88rem;
+}
+
+.site-footer p {
+  margin: 0.65rem 0 0;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.1rem;
+}
+
+.footer-social a {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--amber-soft);
+  padding-bottom: 0.1rem;
+}
+
+.footer-social a:hover {
+  color: var(--teal-deep);
+  border-bottom-color: rgba(13, 107, 97, 0.35);
 }
 
 .reveal {
